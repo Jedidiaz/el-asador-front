@@ -6,6 +6,7 @@
   border-radius: 5px 5px 0px 0px;
 }
 :host ::ng-deep .p-card .p-card-title{
+  font-family: 'Yellowtail';
   text-align: center;
 }
 .content{
@@ -14,16 +15,16 @@
   color: #6f6f6f;
 }
 .button{
-  background-color: #FCBC0C;
+  background-color: #E6B404;
   border: none;
-  color: black !important;
 }
 .button:hover{
-  background-color: #C08B02;
+  background-color: #c39900;
   border: none;
 }
 :host ::ng-deep .p-button-label {
   font-weight: 400;
+  color: black !important;
 }
 :host ::ng-deep .p-card .p-card-footer{
   display: flex;

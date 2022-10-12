@@ -1,0 +1,109 @@
+.container{
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 65% 35%;
+}
+
+:host ::ng-deep .p-orderlist-controls{
+  display: none;
+}
+
+:host ::ng-deep .p-orderlist-list-container{
+  margin-right: 40px;
+}
+
+:host ::ng-deep .p-orderlist-header{
+  display: none;
+}
+
+:host ::ng-deep .cdk-drop-list.p-orderlist-list{
+  border: none;
+  border-top: 1px solid #cccc;
+}
+
+:host ::ng-deep .p-orderlist-item{
+  padding: 30px;
+}
+
+.product-item{
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.order-detail{
+  border-radius: 5px;
+  border: 1px solid #cccc;
+  padding: 35px;
+}
+
+.price-detail, .total{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #cccc;
+  padding: 15px 0;
+  font-size: 1.0rem;
+}
+
+.product-list-detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+
+/* :host ::ng-deep .p-dropdown{
+  width: 5rem;
+  height: 2rem !important;
+} */
+
+.container-info{
+  padding-left: 25px;
+}
+
+.price{
+  font-size: 1.5rem;
+}
+
+.content-image{
+  width: 100%;
+}
+
+.content-category{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 5px 0;
+}
+
+.product-color{
+  width: 3rem;
+  text-align: start;
+}
+
+.product-size{
+  width: 3rem;
+  text-align: end;
+}
+
+.add-to-cart{
+  display: flex;
+  justify-content: center;
+}
+
+.add-to-cart button{
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  background: #5046E5;
+  border-radius: 5px;
+  border: none;
+
+}
+
+:host ::ng-deep .p-orderlist.p-orderlist-list.p-orderlist-item{
+  margin-right: 35px;
+}
+
+:host ::ng-deep li{
+  border-top: 1px solid #cccc;
+}

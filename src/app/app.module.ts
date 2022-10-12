@@ -10,6 +10,12 @@ import { FooterComponent } from './modules/shared/components/footer/footer.compo
 import {MegaMenuModule} from 'primeng/megamenu';
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
+import { SliderComponent } from './modules/shared/components/slider/slider.component';
+import {CarouselModule} from 'primeng/carousel';
+import { CartComponent } from './modules/cart/cart.component';
+import {OrderListModule} from 'primeng/orderlist';
+import {DropdownModule} from 'primeng/dropdown';
+
 
 
 @NgModule({
@@ -17,7 +23,9 @@ import {CardModule} from 'primeng/card';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SliderComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +33,10 @@ import {CardModule} from 'primeng/card';
     AppRoutingModule,
     MegaMenuModule,
     ButtonModule,
-    CardModule
+    CardModule,
+    CarouselModule,
+    OrderListModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

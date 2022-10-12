@@ -1,0 +1,52 @@
+<div class="container">
+  <div>
+    <p-orderList [value]="productsCart" [listStyle]="{'height':'auto'}" header="List of Products" [dragdrop]="true">
+      <ng-template let-product pTemplate="item">
+          <div class="product-item">
+            <div class="content-image">
+              <img src="../../../assets/image-test.jpg" alt="" width="100%" height="auto">
+            </div>
+            <div class="product-list-detail">
+              <div class="container-info">
+                <h5 class="mb-2" style="font-size: 1.2rem;">{{product.name}}</h5>
+                <div class="content-category">
+                  <span class="product-color" style="border-right: 1px solid #cccc;">{{product.color}}</span>
+                  <span class="product-size">{{product.size}}</span>
+                </div>
+                <h6 class="mb-2 ">${{product.price}}</h6>
+              </div>
+              <div class="container-count">
+                <p-dropdown [options]="count" (ngModel)="countSelect" optionLabel="name"></p-dropdown>
+              </div>
+              <!-- <i class="pi pi-tag product-category-icon"></i> -->
+              <div class="product-list-action">
+                <i class="pi pi-times" (click)="cancel(product)"tyle="font-size: 1rem"></i>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+    </p-orderList>
+  </div>
+  <div class="order-detail">
+    <div class="price-detail">
+      <span>Subtotal</span>
+      <span>{{subtotal}}</span>
+    </div>
+    <div class="price-detail">
+      <span>Shipping estimate</span>
+      <span>{{subtotal}}</span>
+    </div>
+    <div class="price-detail">
+      <span>Tax estimate</span>
+      <span>{{subtotal}}</span>
+    </div>
+    <div class="total">
+      <span>Order total</span>
+      <span>{{total}}</span>
+    </div>
+    <div class="add-to-cart">
+      <!-- <button style="width: 100%;" pButton type="button" label="Añadir al carrito"></button> -->
+      <button type="button">Chekout</button>
+    </div>
+  </div>
+</div>

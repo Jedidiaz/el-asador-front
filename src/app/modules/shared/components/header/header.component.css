@@ -1,30 +1,69 @@
 .container{
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 5% 90%;
   align-items: center;
   justify-content: center;
-  padding: 20px 128px;
+  padding: 5px 30px;
   width: 100%;
   position: fixed;
   background: white;
   top: 0;
   z-index: 10;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 }
+
+.content-options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .content-options ul{
   display: flex;
   align-items: center;
   list-style: none;
+
 }
 .content-options ul li{
   padding: 3px 25px;
 }
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav{
+  border: none;
+}
+
+.container-user-actions{
+  display: flex;
+  align-items: center;
+}
+
 .content-button{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 7px 0px;
 }
+
+.content-actions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+:host ::ng-deep .country-item.ng-star-inserted{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flag.flag{
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .button{
   background-color: #E6B404;
   border: none;

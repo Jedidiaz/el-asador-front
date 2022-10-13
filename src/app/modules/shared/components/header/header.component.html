@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="col content-img">
     <img src="../../../../../assets/icon_site.png" alt="" height="auto" width="85%">
   </div>
@@ -11,4 +11,37 @@
     </div>
     <p-megaMenu class="content" [model]="items"></p-megaMenu>
   </div>
+</div> -->
+
+<div class="container">
+  <div class="col content-img">
+    <img src="../../../../../assets/icon_site.png" alt="" height="auto" width="100%">
+  </div>
+  <div class="col content-options">
+    <p-tabMenu class="content" [model]="items" [activeItem]="activeItem"></p-tabMenu>
+    <div class="container-user-actions">
+      <div class="content-actions">
+        <button pButton type="button" label="Sign in" class="p-button-text"></button>
+        <div style="border-left:1px solid #000;height:1.3rem"></div>
+        <button pButton type="button" label="Create account" class="p-button-text"></button>
+      </div>
+      <div class="content-country">
+        <p-dropdown [options]="countries" (ngModel)="selectedCountry" optionLabel="name" placeholder="hola">
+          <ng-template pTemplate="selectedItem" let-item>
+              <div class="country-item country-item-value" *ngIf="selectedCountry">
+                  <img src="../../../../../assets/icon_colombia.png" [class]="'flag flag ' + item.code.toLowerCase()" width="30px"/>
+                  <div>{{item.name}}</div>
+              </div>
+          </ng-template>
+          <ng-template let-country pTemplate="item">
+              <div class="country-item">
+                  <img src="../../../../../assets/icon_colombia.png" [class]="'flag flag-' + country.code.toLowerCase()" />
+                  <div>{{country.name}}</div>
+              </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+  </div>
 </div>
+

@@ -12,6 +12,9 @@ export class HeaderComponent implements OnInit {
   activeItem!:MenuItem;
   info:Array<any> = [];
 
+  /* text: string;
+  results: string[]; */
+
   countries!: any[];
   selectedCountry!:string;
 
@@ -19,11 +22,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Home', icon: 'pi pi-fw pi-home'},
+      {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['']},
       {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
       {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
       {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-      {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+      {label: 'Cart', icon: 'pi pi-shopping-cart', routerLink: ['/cart']}
     ];
 
     this.countries = [
@@ -39,7 +42,14 @@ export class HeaderComponent implements OnInit {
       {name: 'United States', code: 'US'}
   ];
     this.activeItem = this.items[0];
+    this.selectedCountry = this.countries[0];
     this.info = ['Trabaja con nosotros','Contacto']
+  }
+
+  search(event:any) {
+    /* this.mylookupservice.getResults(event.query).then(data => {
+        this.results = data;
+    }); */
   }
 
 }

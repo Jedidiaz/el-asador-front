@@ -85,3 +85,40 @@
   width: 100%;
   height: auto;
 }
+
+.content-actions{
+  margin-right: 15px;
+}
+
+.content-actions :host ::ng-deep .p-button-text{
+  padding: 5px;
+}
+
+:host ::ng-deep .content-country .p-dropdown.p-component{
+  border: none;
+  margin: 0px 15px;
+}
+
+:host ::ng-deep .p-dropdown-label.p-inputtext{
+  padding: 5px;
+}
+
+:host ::ng-deep .country-item.ng-star-inserted{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 15px;
+}
+
+:host ::ng-deep .country-item.ng-star-inserted img{
+  width: 25px;
+}
+
+:host ::ng-deep .p-dropdown-trigger{
+  display: none;
+}
+
+.cart:hover{
+  cursor: pointer;
+}

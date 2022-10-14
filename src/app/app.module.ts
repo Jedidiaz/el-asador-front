@@ -16,7 +16,7 @@ import { CartComponent } from './modules/cart/cart.component';
 import {OrderListModule} from 'primeng/orderlist';
 import {DropdownModule} from 'primeng/dropdown';
 import {TabMenuModule} from 'primeng/tabmenu';
-import {MenuItem} from 'primeng/api';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import {MenuItem} from 'primeng/api';
     CarouselModule,
     OrderListModule,
     DropdownModule,
-    TabMenuModule
+    TabMenuModule,
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

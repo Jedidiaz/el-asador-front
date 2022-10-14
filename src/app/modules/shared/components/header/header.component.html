@@ -26,7 +26,7 @@
         <button pButton type="button" label="Create account" class="p-button-text"></button>
       </div>
       <div class="content-country">
-        <p-dropdown [options]="countries" (ngModel)="selectedCountry" optionLabel="name" placeholder="hola">
+        <p-dropdown [options]="countries" (ngModel)="selectedCountry" optionLabel="name" placeholder="">
           <ng-template pTemplate="selectedItem" let-item>
               <div class="country-item country-item-value" *ngIf="selectedCountry">
                   <img src="../../../../../assets/icon_colombia.png" [class]="'flag flag ' + item.code.toLowerCase()" width="30px"/>
@@ -40,6 +40,12 @@
               </div>
           </ng-template>
         </p-dropdown>
+      </div>
+      <div class="content-filter">
+        <!-- <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"
+            [dropdown]="true"></p-autoComplete> -->
+          <i class="pi pi-search" style="font-size: 1.3rem"></i>
+          <i routerLink="/cart" class="pi pi-shopping-cart cart" style="font-size: 1.3rem; margin-left: 15px;"></i>
       </div>
     </div>
   </div>

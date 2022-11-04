@@ -22,25 +22,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['']},
-      {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
-      {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-      {label: 'Cart', icon: 'pi pi-shopping-cart', routerLink: ['/cart']}
+      {label: 'Productos', icon: 'pi pi-fw pi-home', routerLink: ['']},
+      {label: 'Nuestras Tiendas', icon: 'pi pi-fw pi-calendar'},
+      {label: 'Nosotros', icon: 'pi pi-fw pi-pencil'},
+      {label: 'Carrito', icon: 'pi pi-shopping-cart', routerLink: ['/cart']}
     ];
 
     this.countries = [
-      {name: 'Australia', code: 'AU'},
-      {name: 'Brazil', code: 'BR'},
-      {name: 'China', code: 'CN'},
-      {name: 'Egypt', code: 'EG'},
-      {name: 'France', code: 'FR'},
-      {name: 'Germany', code: 'DE'},
-      {name: 'India', code: 'IN'},
-      {name: 'Japan', code: 'JP'},
-      {name: 'Spain', code: 'ES'},
-      {name: 'United States', code: 'US'}
-  ];
+      {name: 'España', code: 'ES'},
+    ];
     this.activeItem = this.items[0];
     this.selectedCountry = this.countries[0];
     this.info = ['Trabaja con nosotros','Contacto']

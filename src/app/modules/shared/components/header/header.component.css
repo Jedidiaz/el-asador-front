@@ -1,8 +1,7 @@
 .container{
   display: grid;
-  grid-template-columns: 5% 90%;
-  align-items: center;
-  justify-content: center;
+  grid-gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
   padding: 5px 30px;
   width: 100%;
   position: fixed;
@@ -12,19 +11,25 @@
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 }
 
+
 .content-options{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+}
+.content-options2{
+  display: grid;
+  align-items: center;
+  justify-items: end;
 }
 
-.content-options ul{
+.content-options2 ul{
   display: flex;
   align-items: center;
   list-style: none;
 
 }
-.content-options ul li{
+.content-options2 ul li{
   padding: 3px 25px;
 }
 
@@ -59,9 +64,10 @@
 
 .flag.flag{
   display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
 }
 
 .button{
@@ -82,8 +88,9 @@
   border: none;
 }
 .content-img{
-  width: 100%;
+  width: 70px;
   height: auto;
+  margin: auto;
 }
 
 .content-actions{
@@ -96,7 +103,7 @@
 
 :host ::ng-deep .content-country .p-dropdown.p-component{
   border: none;
-  margin: 0px 15px;
+  margin: 0;
 }
 
 :host ::ng-deep .p-dropdown-label.p-inputtext{

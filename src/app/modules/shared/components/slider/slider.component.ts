@@ -10,9 +10,7 @@ export class SliderComponent implements OnInit {
   responsiveOptions:Array<any> = [];
   images:any = [];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -30,11 +28,14 @@ export class SliderComponent implements OnInit {
         numScroll: 1
       }
     ];
+  }
+
+  ngOnInit(): void {
 
     this.images = [
-      {img: 'https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
-      {img: 'https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
-      {img: 'https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+      'https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     ]
   }
 

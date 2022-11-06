@@ -1,26 +1,30 @@
-<!-- <div class="container">
-  <div class="col content-img">
-    <img src="../../../../../assets/icon_site.png" alt="" height="auto" width="85%">
-  </div>
+<!--Main Container header-->
+<nav class="container">
+  <!--Main menu container-->
   <div class="col content-options">
-    <div class="col content-button">
-      <ul>
-        <li *ngFor="let item of info">{{item}}</li>
-      </ul>
-      <button pButton type="button" label="Pide a casa" class="button"></button>
+    <div class="dropDown">
+      <a onclick="window.location.href=''" class="dropDown-a">Productos</a>
+      <div class="dropDown-content">
+        <a href="">item 1</a>
+        <a href="">item 2</a>
+        <a href="">item 3</a>
+        <a href="">item 4</a>
+        <a href="">item 5</a>
+        <a href="">item 6</a>
+        <a href="">item 7</a>
+        <a href="">item 8</a>
+        <a href="">item 9</a>
+        <a href="">item 10</a>
+        <a href="">item 11</a>
+        <a href="">item 12</a>
+        <a href="">item 13</a>
+      </div>
     </div>
-    <p-megaMenu class="content" [model]="items"></p-megaMenu>
+    <a onclick="window.location.href='../cart'">Nuestras Tiendas</a>
+    <a onclick="window.location.href='../cart'">Nosotros</a>
+    <a onclick="window.location.href='../cart'">Carrito</a>
   </div>
-</div> -->
-
-<div class="container">
-  <div class="col content-options">
-    <p-tabMenu
-      class="content"
-      [model]="items"
-      [activeItem]="activeItem"
-    ></p-tabMenu>
-  </div>
+  <!--Image Container-->
   <div class="col content-img">
     <img
       src="../../../../../assets/icon_site.png"
@@ -29,6 +33,7 @@
       width="100%"
     />
   </div>
+  <!--Second menu container-->
   <div class="col content-options2">
     <div class="container-user-actions">
       <div class="content-actions">
@@ -38,7 +43,14 @@
           label="Iniciar sesion"
           class="p-button-text"
         ></button>
-        <div style="border-left: 1px solid #000; height: 1.3rem; margin: 0; padding: 0;"></div>
+        <div
+          style="
+            border-left: 1px solid #000;
+            height: 1.3rem;
+            margin: 0;
+            padding: 0;
+          "
+        ></div>
       </div>
       <div class="content-country">
         <p-dropdown
@@ -83,4 +95,4 @@
       </div>
     </div>
   </div>
-</div>
+</nav>

@@ -45,23 +45,38 @@
 
 .dropDown-content{
   display: none;
+  flex-direction: row;
+  justify-content: space-around;
   position: absolute;
   background-color: #fff;
-  min-width: 160px;
+  width: 96%;
+  height: auto;
   box-shadow: 0px 8px 16px 0px rgba(0 0 0 /10%);
   z-index: 1;
 }
 
-.dropDown-content > a {
-  padding: 15px;
+.dropDown-column{
+  align-items: center;
+}
+
+.dropDown-column > a {
+  padding: 10px;
   text-decoration: none;
   cursor: pointer;
-  display: block;
-  align-items: left;
+  display: flex;
+  align-items: center;
+}
+
+.dropDown-column > a >img{
+  width: 80px;
+  height: 80px;
+  padding: 5px;
+  object-fit: cover;
+
 }
 
 .dropDown:hover .dropDown-content{
-  display: block;
+  display: flex;
 }
 /* ----------------------------------------------------------------- */
 

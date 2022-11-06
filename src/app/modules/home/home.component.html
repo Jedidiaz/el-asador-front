@@ -1,5 +1,27 @@
+<!-- Main container------------------------------------------------------------- -->
 <div class="container">
+  <!-- Images carousel -->
+  <p-carousel
+    [value]="images"
+    [numVisible]="1"
+    [numScroll]="1"
+    [responsiveOptions]="responsiveOptions"
+    class="Carousel"
+  >
+    <ng-template let-car pTemplate="item" class="carousel-template">
+      <div class="carousel-content-img">
+        <img
+          [src]="images[0]"
+          alt=""
+          onclick="window.location.href='../cart'"
+        />
+      </div>
+    </ng-template>
+  </p-carousel>
+  <!-- ---------------------------------------------------------------------------------- -->
+<!-- Second container ----------------------------------------------------------------------->
   <div class="secundario">
+    <!-- Crad 1 -->
     <p-card
       header="¡Sebastián Yatra llegó para compartir su Menú McDonalds!"
       subheader=""
@@ -11,9 +33,16 @@
       </ng-template>
       <p class="content">¿Qué esperas para probarlo?</p>
       <ng-template pTemplate="footer">
-        <button pButton type="button" label="Comprar" class="button" onclick="window.location.href='../cart'"></button>
+        <button
+          pButton
+          type="button"
+          label="Comprar"
+          class="button"
+          onclick="window.location.href='../cart'"
+        ></button>
       </ng-template>
     </p-card>
+    <!-- Card 2 -->
     <p-card
       header="¡Sebastián Yatra llegó para compartir su Menú McDonalds!"
       subheader=""
@@ -25,9 +54,16 @@
       </ng-template>
       <p class="content">¿Qué esperas para probarlo?</p>
       <ng-template pTemplate="footer">
-        <button pButton type="button" label="Comprar" class="button" onclick="window.location.href='../cart'"></button>
+        <button
+          pButton
+          type="button"
+          label="Comprar"
+          class="button"
+          onclick="window.location.href='../cart'"
+        ></button>
       </ng-template>
     </p-card>
+    <!-- card 3 -->
     <p-card
       header="¡Sebastián Yatra llegó para compartir su Menú McDonalds!"
       subheader=""
@@ -39,7 +75,13 @@
       </ng-template>
       <p class="content">¿Qué esperas para probarlo?</p>
       <ng-template pTemplate="footer">
-        <button pButton type="button" label="Comprar" class="button" onclick="window.location.href='../cart'"></button>
+        <button
+          pButton
+          type="button"
+          label="Comprar"
+          class="button"
+          onclick="window.location.href='../cart'"
+        ></button>
       </ng-template>
     </p-card>
   </div>

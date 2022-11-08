@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-//Boostrap
+//httpclient
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -19,6 +20,7 @@ import {OrderListModule} from 'primeng/orderlist';
 import {DropdownModule} from 'primeng/dropdown';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import { CarouselService } from './servicios/carousel/carousel.service';
 
 
 
@@ -42,9 +44,10 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     OrderListModule,
     DropdownModule,
     TabMenuModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CarouselService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

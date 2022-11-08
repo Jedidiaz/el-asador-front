@@ -1,0 +1,22 @@
+{
+  "data":[
+    {
+      "imagen": "../assets/Image-carousel/carousel-01.jpg"
+    },
+    {
+      "imagen": "../assets/Image-carousel/carousel-02.jpg"
+    },
+    {
+      "imagen": "../assets/Image-carousel/carousel-03.jpg"
+    },
+    {
+      "imagen": "../assets/Image-carousel/carousel-04.jpg"
+    },
+    {
+      "imagen": "../assets/Image-carousel/carousel-05.jpg"
+    },
+    {
+      "imagen": "../assets/Image-carousel/carousel-06.jpg"
+    }
+  ]
+}

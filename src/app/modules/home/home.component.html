@@ -1,25 +1,28 @@
 <!-- Main container------------------------------------------------------------- -->
 <div class="container">
   <!-- Images carousel -->
-  <p-carousel
-    [value]="images"
-    [numVisible]="1"
-    [numScroll]="1"
-    [responsiveOptions]="responsiveOptions"
-    class="Carousel"
-  >
-    <ng-template let-car pTemplate="item" class="carousel-template">
-      <div class="carousel-content-img">
-        <img
-          [src]="images[0]"
-          alt=""
-          onclick="window.location.href='../cart'"
-        />
-      </div>
-    </ng-template>
-  </p-carousel>
+  <div class="principal">
+    <p-carousel
+      [value]="carousel"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="3000"
+    >
+      <ng-template let-carousel pTemplate="item">
+        <div class="carousel-content-img">
+          <img
+            src="{{ carousel.imagen }}"
+            alt=""
+            onclick="window.location.href='/cart'"
+          />
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+
   <!-- ---------------------------------------------------------------------------------- -->
-<!-- Second container ----------------------------------------------------------------------->
+  <!-- Second container ----------------------------------------------------------------------->
   <div class="secundario">
     <!-- Crad 1 -->
     <p-card
@@ -29,7 +32,7 @@
       styleClass="p-card-shadow"
     >
       <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="../../../assets/test.jpeg" />
+        <img class="card-img" alt="Card" src="../../../assets/Image-carousel/carousel-06.jpg" />
       </ng-template>
       <p class="content">¿Qué esperas para probarlo?</p>
       <ng-template pTemplate="footer">
@@ -50,7 +53,7 @@
       styleClass="p-card-shadow"
     >
       <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="../../../assets/test.jpeg" />
+        <img class="card-img" alt="Card" src="../../../assets/Image-carousel/carousel-05.jpg" />
       </ng-template>
       <p class="content">¿Qué esperas para probarlo?</p>
       <ng-template pTemplate="footer">
@@ -71,7 +74,7 @@
       styleClass="p-card-shadow"
     >
       <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="../../../assets/test.jpeg" />
+        <img class="card-img" alt="Card" src="../../../assets/Image-carousel/carousel-04.jpg" />
       </ng-template>
       <p class="content">¿Qué esperas para probarlo?</p>
       <ng-template pTemplate="footer">

@@ -41,7 +41,7 @@
   justify-content: space-between;
   border-bottom: 1px solid #cccc;
   padding: 15px 0;
-  font-size: 1.0rem;
+  font-size: 2.0rem;
 }
 
 .product-list-detail{
@@ -97,7 +97,8 @@
   background: #5046E5;
   border-radius: 5px;
   border: none;
-
+  color: #fff;
+  font-size: 19px;
 }
 
 :host ::ng-deep .p-orderlist.p-orderlist-list.p-orderlist-item{

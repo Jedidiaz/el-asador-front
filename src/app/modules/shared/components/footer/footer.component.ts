@@ -8,13 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
 
-info:Array<any> = [];
-  constructor() { }
-
   ngOnInit(): void {
-    this.info = [
-      'Contactanos'
-    ]
   }
 
 }

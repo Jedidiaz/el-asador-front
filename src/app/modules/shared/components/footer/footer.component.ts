@@ -13,11 +13,6 @@ info:Array<any> = [];
 
   ngOnInit(): void {
     this.info = [
-      'Contactanos',
-      'Contactanos',
-      'Contactanos',
-      'Contactanos',
-      'Contactanos',
       'Contactanos'
     ]
   }

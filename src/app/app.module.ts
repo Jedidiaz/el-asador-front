@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-//httpclient
+//httpclient-------------------------------------------
 import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
@@ -21,8 +21,9 @@ import {DropdownModule} from 'primeng/dropdown';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { CarouselService } from './servicios/carousel/carousel.service';
-
-
+//login---------------
+import { LoginComponent } from './modules/login/login.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CarouselService } from './servicios/carousel/carousel.service';
     HeaderComponent,
     FooterComponent,
     SliderComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { CarouselService } from './servicios/carousel/carousel.service';
     DropdownModule,
     TabMenuModule,
     AutoCompleteModule,
-    HttpClientModule
+    HttpClientModule,
+    InputTextModule
   ],
   providers: [CarouselService],
   bootstrap: [AppComponent]

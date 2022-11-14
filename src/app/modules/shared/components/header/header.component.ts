@@ -11,6 +11,8 @@ export class HeaderComponent implements OnInit {
   items:MenuItem[] = [];
   activeItem!:MenuItem;
   info:Array<any> = [];
+  subMenu: Array<any> = [];
+  nameProduct: string = 'Product';
 
   /* text: string;
   results: string[]; */
@@ -27,6 +29,17 @@ export class HeaderComponent implements OnInit {
       {label: 'Nosotros', icon: 'pi pi-fw pi-pencil'},
       {label: 'Carrito', icon: 'pi pi-shopping-cart', routerLink: ['/cart']}
     ];
+    this.subMenu = [
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'}
+    ]
 
     this.countries = [
       {name: 'España', code: 'ES'},

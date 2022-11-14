@@ -5,26 +5,8 @@
     <div class="dropDown">
       <a onclick="window.location.href=''" class="dropDown-a">Productos</a>
       <div class="dropDown-content">
-        <div class="dropDown-column">
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 1</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 2</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 3</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 4</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 5</a>
-        </div>
-        <div class="dropDown-column">
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 1</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 2</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 3</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 4</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 5</a>
-        </div>
-        <div class="dropDown-column">
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 1</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 2</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 3</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 4</a>
-          <a href=""><img src="../../../../../assets/submenu_icon.png" alt="image">item 5</a>
+        <div class="dropDown-column" *ngFor="let element of subMenu">
+          <a href=""><img src="{{element.image}}" alt="" class="image-submenu">{{element.product}}</a>
         </div>
       </div>
     </div>
@@ -62,6 +44,7 @@
           "
         ></div>
       </div>
+      <!-- Select countries--------------------------- -->
       <div class="content-country">
         <p-dropdown
           [options]="countries"

@@ -45,8 +45,8 @@
 
 .dropDown-content{
   display: none;
-  flex-direction: row;
-  justify-content: space-around;
+  /* flex-direction: row; */
+  grid-template-columns: 33% 33% 33%;
   position: absolute;
   background-color: #fff;
   width: 96%;
@@ -67,16 +67,13 @@
   align-items: center;
 }
 
-.dropDown-column > a >img{
+.image-submenu{
   width: 80px;
-  height: 80px;
-  padding: 5px;
-  object-fit: cover;
-
+  margin: 0px 0px 30px 50px;
 }
 
 .dropDown:hover .dropDown-content{
-  display: flex;
+  display: grid;
 }
 /* ----------------------------------------------------------------- */
 

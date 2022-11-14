@@ -67,6 +67,10 @@
   align-items: center;
 }
 
+.dropDown-column:hover{
+  opacity: 50%;
+}
+
 .image-submenu{
   width: 80px;
   margin: 0px 0px 30px 50px;

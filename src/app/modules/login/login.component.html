@@ -5,16 +5,16 @@
       <img src="../../../assets/icon_site.png" alt="" />
     </div>
     <span class="p-float-label">
-      <input id="input-email" type="email" pInputText />
+      <input #username id="input-email" type="email" pInputText required />
       <label for="email">Direccion de correo</label>
     </span>
     <span class="p-float-label">
-      <input id="input-password" type="password" pInputText />
+      <input #password id="input-password" type="password" pInputText required />
       <label for="input-password">Contraseña</label>
     </span>
     <div class="button-container">
-      <button pButton class="button" label="Iniciar Sesion"></button>
-      <button pButton class="button" label="Registrarse"></button>
+      <button pButton class="button" label="Iniciar Sesion" (click)="validateLogin(username.value, password.value)"></button>
+      <button pButton class="button" label="Registrarse" onclick="window.location.href='/forgot-password'"></button>
     </div>
     <a href="">¿ Olvidó su contraseña ?</a>
   </div>

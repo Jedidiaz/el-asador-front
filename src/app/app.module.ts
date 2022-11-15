@@ -24,6 +24,7 @@ import { CarouselService } from './servicios/carousel/carousel.service';
 //login---------------
 import { LoginComponent } from './modules/login/login.component';
 import {InputTextModule} from 'primeng/inputtext';
+import { ForgotPasswordComponent } from './modules/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {InputTextModule} from 'primeng/inputtext';
     SliderComponent,
     CartComponent,
     LoginComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

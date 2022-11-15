@@ -23,60 +23,19 @@
 
   <!-- ---------------------------------------------------------------------------------- -->
   <!-- Second container ----------------------------------------------------------------------->
-  <div class="secundario">
+  <div class="secundario" >
     <!-- Crad 1 -->
-    <p-card
-      header="¡Sebastián Yatra llegó para compartir su Menú McDonalds!"
+      <p-card
+      header="{{element.title}}"
       subheader=""
       [style]="{ width: '100%' }"
       styleClass="p-card-shadow"
+      *ngFor="let element of promotionCards"
     >
       <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="../../../assets/Image-carousel/carousel-06.jpg" />
+        <img class="card-img" alt="Card" src="{{element.image}}" />
       </ng-template>
-      <p class="content">¿Qué esperas para probarlo?</p>
-      <ng-template pTemplate="footer">
-        <button
-          pButton
-          type="button"
-          label="Comprar"
-          class="button"
-          onclick="window.location.href='../cart'"
-        ></button>
-      </ng-template>
-    </p-card>
-    <!-- Card 2 -->
-    <p-card
-      header="¡Sebastián Yatra llegó para compartir su Menú McDonalds!"
-      subheader=""
-      [style]="{ width: '100%' }"
-      styleClass="p-card-shadow"
-    >
-      <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="../../../assets/Image-carousel/carousel-05.jpg" />
-      </ng-template>
-      <p class="content">¿Qué esperas para probarlo?</p>
-      <ng-template pTemplate="footer">
-        <button
-          pButton
-          type="button"
-          label="Comprar"
-          class="button"
-          onclick="window.location.href='../cart'"
-        ></button>
-      </ng-template>
-    </p-card>
-    <!-- card 3 -->
-    <p-card
-      header="¡Sebastián Yatra llegó para compartir su Menú McDonalds!"
-      subheader=""
-      [style]="{ width: '100%' }"
-      styleClass="p-card-shadow"
-    >
-      <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="../../../assets/Image-carousel/carousel-04.jpg" />
-      </ng-template>
-      <p class="content">¿Qué esperas para probarlo?</p>
+      <p class="content">{{element.content}}</p>
       <ng-template pTemplate="footer">
         <button
           pButton

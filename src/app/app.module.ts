@@ -25,6 +25,9 @@ import { CarouselService } from './servicios/carousel/carousel.service';
 import { LoginComponent } from './modules/login/login.component';
 import {InputTextModule} from 'primeng/inputtext';
 import { ForgotPasswordComponent } from './modules/forgot-password/forgot-password.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { ForgotPasswordComponent } from './modules/forgot-password/forgot-passwo
     TabMenuModule,
     AutoCompleteModule,
     HttpClientModule,
-    InputTextModule
+    InputTextModule,
+    RadioButtonModule,
+    OverlayPanelModule,
+    FormsModule
   ],
   providers: [CarouselService],
   bootstrap: [AppComponent]

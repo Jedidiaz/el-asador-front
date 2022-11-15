@@ -1,55 +1,119 @@
-<div class="container">
-  <div>
-    <p-orderList
-      [value]="productsCart"
-      [listStyle]="{ height: 'auto' }"
-      header="List of Products"
-      [dragdrop]="true"
-    >
-      <ng-template let-product pTemplate="item">
-        <div class="product-item">
-          <div class="content-image">
-            <img
-              src="../../../assets/Image-carousel/carousel-05.jpg"
-              alt=""
-              width="100%"
-              height="auto"
-            />
-          </div>
-          <div class="product-list-detail">
-            <div class="container-info">
-              <h5 class="mb-2" style="font-size: 1.2rem; font-weight: 400;">{{ product.name }}</h5>
-              <h6 class="mb-2" style="font-size: 1.5rem;">€{{ product.price }}</h6>
-            </div>
-            <div class="container-count">
-              <p-dropdown
-                [options]="count"
-                (ngModel)="(countSelect)"
-                optionLabel="name"
-              ></p-dropdown>
-            </div>
-            <!-- <i class="pi pi-tag product-category-icon"></i> -->
-            <div class="product-list-action">
-              <i
-                class="pi pi-times"
-                (click)="cancel(product)"
-                tyle="font-size: 1rem"
-              ></i>
-            </div>
-          </div>
-        </div>
-      </ng-template>
-    </p-orderList>
-  </div>
-  <!-- ------------------------------------------------------------- -->
-  <div class="order-detail">
-    <div class="price-detail">
-      <span>Subtotal</span>
-      <span>€{{ subtotal }}</span>
+<div class="main">
+  <div class="data" *ngIf="option == true">
+    <p-radioButton
+    class="radioButton"
+    name="groupname"
+    value="val1"
+    [(ngModel)]="selectedValue"
+    label="Envio"
+    ></p-radioButton>
+    <!-- Envio ------------------------ -->
+    <div class="div-envio" *ngIf="selectedValue == 'val1'">
+      <p-dropdown [options]="sucursal" [(ngModel)]="selectSucursal" optionLabel="name" optionValue="code"></p-dropdown>
+      <div class="radio-content">
+        <p-radioButton
+        class="radioButton"
+        name="groupname"
+        value="1"
+        [(ngModel)]="selectedPay"
+        label="Efectivo"
+        ></p-radioButton>
+        <p-radioButton
+        class="radioButton"
+        name="groupname"
+        value="2"
+        [(ngModel)]="selectedPay"
+        label="Pago seguro"
+        ></p-radioButton>
+      </div>
     </div>
-    <div class="add-to-cart">
-      <!-- <button style="width: 100%;" pButton type="button" label="Añadir al carrito"></button> -->
-      <button type="button">Realizar compra</button>
+    <p-radioButton
+    class="radioButton"
+    name="groupname"
+    value="val2"
+    [(ngModel)]="selectedValue"
+    label="Retiro"
+    ></p-radioButton>
+    <!-- retiro -------------------- -->
+    <div class="div-retiro" *ngIf="selectedValue == 'val2'">
+      <p-dropdown [options]="sucursal" [(ngModel)]="selectSucursal" optionLabel="name" optionValue="code"></p-dropdown>
+      <div class="radio-content">
+        <p-radioButton
+        class="radioButton"
+        name="groupname"
+        value="1"
+        [(ngModel)]="selectedPay"
+        label="Efectivo"
+        ></p-radioButton>
+        <p-radioButton
+        class="radioButton"
+        name="groupname"
+        value="2"
+        [(ngModel)]="selectedPay"
+        label="Pago seguro"
+        ></p-radioButton>
+      </div>
+    </div>
+    <button>Hacer pedido</button>
+  </div>
+  <!-- CONTAINER CART----------------- -->
+  <div class="container">
+    <div id="shop">
+      <p-orderList
+        [value]="productsCart"
+        [listStyle]="{ height: 'auto' }"
+        header="List of Products"
+        [dragdrop]="true"
+      >
+        <ng-template let-product pTemplate="item">
+          <div class="product-item">
+            <div class="content-image">
+              <img
+                src="../../../assets/Image-carousel/carousel-05.jpg"
+                alt=""
+                width="100%"
+                height="auto"
+              />
+            </div>
+            <div class="product-list-detail">
+              <div class="container-info">
+                <h5 class="mb-2" style="font-size: 1.2rem; font-weight: 400">
+                  {{ product.name }}
+                </h5>
+                <h6 class="mb-2" style="font-size: 1.5rem">
+                  €{{ product.price }}
+                </h6>
+              </div>
+              <div class="container-count">
+                <p-dropdown
+                  [options]="count"
+                  (ngModel)="(countSelect)"
+                  optionLabel="name"
+                ></p-dropdown>
+              </div>
+              <!-- <i class="pi pi-tag product-category-icon"></i> -->
+              <div class="product-list-action">
+                <i
+                  class="pi pi-times"
+                  (click)="cancel(product)"
+                  tyle="font-size: 1rem"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-orderList>
+    </div>
+    <!-- ------------------------------------------------------------- -->
+    <div class="order-detail">
+      <div class="price-detail">
+        <span>Subtotal</span>
+        <span>€{{ subtotal }}</span>
+      </div>
+      <div class="add-to-cart">
+        <!-- <button style="width: 100%;" pButton type="button" label="Añadir al carrito"></button> -->
+        <button type="button" (click)="dataMenu()">Realizar compra</button>
+      </div>
     </div>
   </div>
 </div>

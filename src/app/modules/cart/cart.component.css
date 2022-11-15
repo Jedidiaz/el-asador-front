@@ -1,3 +1,7 @@
+.main{
+  display: flex;
+  justify-content: center;
+}
 .container{
   margin-top: 200px;
   display: grid;
@@ -88,6 +92,7 @@
 .add-to-cart{
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .add-to-cart button{
@@ -99,6 +104,56 @@
   border: none;
   color: #fff;
   font-size: 19px;
+  cursor: pointer;
+}
+.add-to-cart button:hover{
+  background-color: #3d31e6;
+}
+/* data container------------------------------ */
+.data {
+  font-family: 'Bebas Neue';
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #f7f7f7;
+  width: 30%;
+  height: auto;
+  z-index: 1;
+  margin-top: 200px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 5px 13px 4px rgb(0 0 0 / 20%);
+}
+.div-envio, .div-retiro{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.radio-content{
+  display: flex;
+  margin: 10px;
+}
+
+.data .radioButton{
+  margin: 10px 10px;
+}
+
+.data button{
+  font-family: 'Bebas Neue';
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  background: #5046E5;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.data button:hover{
+  background-color: #3d31e6;
 }
 
 :host ::ng-deep .p-orderlist.p-orderlist-list.p-orderlist-item{

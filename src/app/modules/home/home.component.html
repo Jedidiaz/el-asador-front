@@ -13,7 +13,7 @@
         <div class="carousel-content-img">
           <img
             src="{{ carousel.imagen }}"
-            alt=""
+            alt="carousel"
             onclick="window.location.href='/cart'"
           />
         </div>
@@ -26,16 +26,16 @@
   <div class="secundario" >
     <!-- Crad 1 -->
       <p-card
-      header="{{element.title}}"
+      header="{{element.descripcion_corta}}"
       subheader=""
       [style]="{ width: '100%' }"
       styleClass="p-card-shadow"
-      *ngFor="let element of promotionCards"
+      *ngFor="let element of products"
     >
       <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="{{element.image}}" />
+        <img class="card-img" alt="Card" src="{{element.foto_promocion}}" />
       </ng-template>
-      <p class="content">{{element.content}}</p>
+      <p class="content">{{element.descripcion}}</p>
       <ng-template pTemplate="footer">
         <button
           pButton

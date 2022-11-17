@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
+import {  ApiService } from '../../../../servicios/api/api.service';
+import { ProductI } from '../../../../models/Productos/Products.interface'
+
 
 @Component({
   selector: 'app-header',
@@ -8,19 +11,22 @@ import { MegaMenuItem, MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
 
+
   items:MenuItem[] = [];
   activeItem!:MenuItem;
   info:Array<any> = [];
-  subMenu: Array<any> = [];
   nameProduct: string = 'Product';
+  checked: boolean = false;
 
   /* text: string;
   results: string[]; */
-
+  products: ProductI[];
   countries!: any[];
   selectedCountry!:string;
 
-  constructor() { }
+  constructor(public api: ApiService) {
+
+   }
 
   ngOnInit(): void {
     this.items = [
@@ -29,17 +35,22 @@ export class HeaderComponent implements OnInit {
       {label: 'Nosotros', icon: 'pi pi-fw pi-pencil'},
       {label: 'Carrito', icon: 'pi pi-shopping-cart', routerLink: ['/cart']}
     ];
-    this.subMenu = [
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-      {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'}
-    ]
+
+    //Obtener productos
+    this.api.getAllProducts().subscribe(data=> {
+      this.products = data.data;
+    })
+    // this.subMenu = [
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
+    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'}
+    // ]
 
     this.countries = [
       {name: 'España', code: 'ES'},
@@ -47,6 +58,11 @@ export class HeaderComponent implements OnInit {
     this.activeItem = this.items[0];
     this.selectedCountry = this.countries[0];
     this.info = ['Trabaja con nosotros','Contacto']
+    console.log()
+
+    if(localStorage.getItem("token")){
+      this.checked = true;
+    }
   }
 
   search(event:any) {

@@ -59,3 +59,11 @@
 .content-login a:hover{
   color: #ffd024;
 }
+
+/* error ---------- */
+p {
+  margin: 20px;
+  color: red;
+  font-weight: 700;
+
+}

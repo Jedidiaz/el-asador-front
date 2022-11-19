@@ -3,16 +3,16 @@
   <!--Main menu container-->
   <div class="col content-options">
     <div class="dropDown">
-      <a onclick="window.location.href=''" class="dropDown-a">Productos</a>
+      <a [routerLink]="['']" class="dropDown-a">Productos</a>
       <div class="dropDown-content">
         <div class="dropDown-column" *ngFor="let element of products">
-          <a href=""><img src="{{element.foto_carrito}}" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
+          <a (click)="addCart(element)"><img src="{{element.foto_carrito}}" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
         </div>
       </div>
     </div>
     <a onclick="window.location.href=''">Nuestras Tiendas</a>
     <a onclick="window.location.href=''">Nosotros</a>
-    <a onclick="window.location.href='../cart'">Carrito</a>
+    <a [routerLink]="['/cart']">Carrito</a>
   </div>
   <!--Image Container-->
   <div class="col content-img">

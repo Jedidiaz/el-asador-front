@@ -3,9 +3,14 @@
   justify-content: center;
 }
 .container{
+  width: 100%;
   margin-top: 200px;
   display: grid;
   grid-template-columns: 65% 35%;
+}
+
+.shop{
+  width: 100%;
 }
 
 :host ::ng-deep .p-orderlist-controls{

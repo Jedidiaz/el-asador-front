@@ -3,7 +3,7 @@
   <!-- Images carousel -->
   <div class="principal">
     <p-carousel
-      [value]="carousel"
+      [value]="products"
       [numVisible]="1"
       [numScroll]="1"
       [circular]="true"
@@ -12,9 +12,9 @@
       <ng-template let-carousel pTemplate="item">
         <div class="carousel-content-img">
           <img
-            src="{{ carousel.imagen }}"
+            src="{{ carousel.foto_carusel }}"
             alt="carousel"
-            onclick="window.location.href='/cart'"
+            (click)="addCart(carousel)"
           />
         </div>
       </ng-template>
@@ -24,7 +24,7 @@
   <!-- ---------------------------------------------------------------------------------- -->
   <!-- Second container ----------------------------------------------------------------------->
   <div class="secundario" >
-    <!-- Crad 1 -->
+    <!-- Crads ------------------ -->
       <p-card
       header="{{element.descripcion_corta}}"
       subheader=""
@@ -33,7 +33,7 @@
       *ngFor="let element of products"
     >
       <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="{{element.foto_promocion}}" />
+        <img class="card-img" alt="Card" src="../../../assets/articulos/007073.png"/>
       </ng-template>
       <p class="content">{{element.descripcion}}</p>
       <ng-template pTemplate="footer">
@@ -42,7 +42,7 @@
           type="button"
           label="Comprar"
           class="button"
-          onclick="window.location.href='../cart'"
+          (click)="addCart(element)"
         ></button>
       </ng-template>
     </p-card>

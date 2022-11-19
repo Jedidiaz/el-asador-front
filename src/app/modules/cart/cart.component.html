@@ -58,16 +58,16 @@
   </div>
   <!-- CONTAINER CART----------------- -->
   <div class="container">
-    <div id="shop">
+    <!-- Shop  -->
+    <div id="shop" >
       <p-orderList
         [value]="productsCart"
         [listStyle]="{ height: 'auto' }"
-        header="List of Products"
         [dragdrop]="true"
       >
-        <ng-template let-product pTemplate="item">
-          <div class="product-item">
-            <div class="content-image">
+        <ng-template let-producto pTemplate="item">
+          <div class="product-item" >
+            <div class="content-image" >
               <img
                 src="../../../assets/Image-carousel/carousel-05.jpg"
                 alt=""
@@ -78,10 +78,10 @@
             <div class="product-list-detail">
               <div class="container-info">
                 <h5 class="mb-2" style="font-size: 1.2rem; font-weight: 400">
-                  {{ product.name }}
+                  {{ producto.name }}
                 </h5>
                 <h6 class="mb-2" style="font-size: 1.5rem">
-                  €{{ product.price }}
+                  €{{ producto.price }}
                 </h6>
               </div>
               <div class="container-count">
@@ -91,11 +91,11 @@
                   optionLabel="name"
                 ></p-dropdown>
               </div>
-              <!-- <i class="pi pi-tag product-category-icon"></i> -->
+
               <div class="product-list-action">
                 <i
                   class="pi pi-times"
-                  (click)="cancel(product)"
+                  (click)="cancel(producto)"
                   tyle="font-size: 1rem"
                 ></i>
               </div>

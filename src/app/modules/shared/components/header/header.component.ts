@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import {  ApiService } from '../../../../servicios/api/api.service';
 import { ProductI } from '../../../../models/Productos/Products.interface'
+import { CartService } from 'src/app/servicios/cart/cart.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +26,7 @@ export class HeaderComponent implements OnInit {
   countries!: any[];
   selectedCountry!:string;
 
-  constructor(public api: ApiService) {
+  constructor(public api: ApiService, private cartService: CartService, private router: Router) {
 
    }
 
@@ -40,17 +42,6 @@ export class HeaderComponent implements OnInit {
     this.api.getAllProducts().subscribe(data=> {
       this.products = data.data;
     })
-    // this.subMenu = [
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'},
-    //   {product: this.nameProduct, image: '../../../../../assets/submenu_icon.png'}
-    // ]
 
     this.countries = [
       {name: 'España', code: 'ES'},
@@ -69,6 +60,11 @@ export class HeaderComponent implements OnInit {
     /* this.mylookupservice.getResults(event.query).then(data => {
         this.results = data;
     }); */
+  }
+
+  addCart(product: ProductI){
+    this.cartService.addToCart(product);
+    this.router.navigate(['/cart'])
   }
 
 }

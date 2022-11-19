@@ -18,12 +18,14 @@ export class ApiService {
     return this.http.post<ResponseI>(direccion, form);
   }
   getAllProducts():Observable<ResponseGET>{
-    let direccion = this.url + "/get_products"
+    let direccion = this.url + "/get_products";
     return this.http.get<ResponseGET>(direccion);
   }
+
   logoutUser(){
     localStorage.removeItem("token")
   }
+
   loggedIn(){
     return !!localStorage.getItem("token")
   }

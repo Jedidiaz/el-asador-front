@@ -114,6 +114,11 @@
 .add-to-cart button:hover{
   background-color: #3d31e6;
 }
+
+.add-to-cart button:disabled{
+  background-color: gray;
+  cursor: auto;
+}
 /* data container------------------------------ */
 .data {
   font-family: 'Bebas Neue';
@@ -135,6 +140,50 @@
   align-items: center;
   justify-content: center;
 }
+
+/* envio de productos menu */
+.envio-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0px 20px 0px;
+}
+
+.envio-content div{
+  border-left: 1px solid #000;
+  height: 30px;
+  margin: 0px 20px 0px 20px;
+}
+
+.envio-content input{
+  border: none;
+  border-bottom: 1px solid #000;
+  height: 30px;
+  width: 120px;
+  background-color: #f7f7f7;
+  outline: none;
+}
+
+.envio-content input:focus{
+  border-bottom: 1px solid #5046E5;
+}
+
+.envio-content input::placeholder{
+  opacity: 40%;
+  align-items: center;
+  color: #000;
+}
+
+.envio-content a{
+  text-decoration: none;
+  font-weight: 28px;
+  padding: 0px;
+}
+.envio-content a:hover{
+  color: #5046E5;
+}
+/* radio buttons */
 .radio-content{
   display: flex;
   margin: 10px;
@@ -142,6 +191,17 @@
 
 .data .radioButton{
   margin: 10px 10px;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.title h3{
+  font-size: 20px;
+  font-family: 'Bebas Neue';
 }
 
 .data button{
@@ -161,6 +221,7 @@
   background-color: #3d31e6;
 }
 
+
 :host ::ng-deep .p-orderlist.p-orderlist-list.p-orderlist-item{
   margin-right: 35px;
 }
@@ -168,3 +229,4 @@
 :host ::ng-deep li{
   border-top: 1px solid #cccc;
 }
+

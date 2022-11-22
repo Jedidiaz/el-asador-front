@@ -33,7 +33,7 @@
       *ngFor="let element of products"
     >
       <ng-template pTemplate="header">
-        <img class="card-img" alt="Card" src="../../../assets/articulos/007073.png"/>
+        <img class="card-img" alt="Card" src="{{element.foto_promocion}}"/>
       </ng-template>
       <p class="content">{{element.descripcion}}</p>
       <ng-template pTemplate="footer">

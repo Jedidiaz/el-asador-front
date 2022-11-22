@@ -14,6 +14,7 @@ import { CartService } from '../../servicios/cart/cart.service';
 
 export class CartComponent implements OnInit {
   @Input() productHeader: ProductI;
+  bloquear: boolean = false;
   name =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
   productsCart: Array<any>= [];
@@ -52,6 +53,8 @@ export class CartComponent implements OnInit {
         cateorgy: 'foot'
       })
     }
+    //Habilitar boton
+    this.habilitarBtn();
     //Contador
     this.count.push(
       { name: '1', code: '1' },
@@ -77,6 +80,9 @@ export class CartComponent implements OnInit {
         suma = suma + precio.price;
     });
       this.subtotal = suma;
+      if(suma == 0){
+        this.bloquear = true;
+      }
     }
   }
   //Data menu -----------------------------
@@ -84,4 +90,9 @@ export class CartComponent implements OnInit {
     this.option = !this.option;
   }
 
+  habilitarBtn(){
+    if (this.productsCart.length > 0){
+      this.bloquear = false;
+    }
+  }
 }

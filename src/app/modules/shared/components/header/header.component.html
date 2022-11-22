@@ -3,7 +3,7 @@
   <!--Main menu container-->
   <div class="col content-options">
     <div class="dropDown">
-      <a [routerLink]="['']" class="dropDown-a">Productos</a>
+      <a class="dropDown-a" [routerLink]="['']">Productos</a>
       <div class="dropDown-content">
         <div class="dropDown-column" *ngFor="let element of products">
           <a (click)="addCart(element)"><img src="{{element.foto_carrito}}" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
@@ -21,6 +21,7 @@
       alt=""
       height="auto"
       width="100%"
+      [routerLink]="['']"
     />
   </div>
   <!--Second menu container-->

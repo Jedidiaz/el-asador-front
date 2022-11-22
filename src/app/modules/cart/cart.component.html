@@ -1,56 +1,53 @@
 <div class="main">
   <div class="data" *ngIf="option == true">
+    <div class="title">
+      <h3>Retirar Pedido por Sucursal o Solicitar Envio a Domicilio</h3>
+    </div>
+
     <p-radioButton
-    class="radioButton"
-    name="groupname"
-    value="val1"
-    [(ngModel)]="selectedValue"
-    label="Envio"
+      class="radioButton"
+      name="groupname"
+      value="val1"
+      [(ngModel)]="selectedValue"
+      label="Envio"
     ></p-radioButton>
     <!-- Envio ------------------------ -->
     <div class="div-envio" *ngIf="selectedValue == 'val1'">
-      <p-dropdown [options]="sucursal" [(ngModel)]="selectSucursal" optionLabel="name" optionValue="code"></p-dropdown>
-      <div class="radio-content">
-        <p-radioButton
-        class="radioButton"
-        name="groupname"
-        value="1"
-        [(ngModel)]="selectedPay"
-        label="Efectivo"
-        ></p-radioButton>
-        <p-radioButton
-        class="radioButton"
-        name="groupname"
-        value="2"
-        [(ngModel)]="selectedPay"
-        label="Pago seguro"
-        ></p-radioButton>
+      <div class="envio-content">
+        <a [routerLink]="['/login']">Iniciar sesion</a>
+        <div></div>
+        <input id="cod_postal" type="text" placeholder="Codigo Postal">
       </div>
     </div>
     <p-radioButton
-    class="radioButton"
-    name="groupname"
-    value="val2"
-    [(ngModel)]="selectedValue"
-    label="Retiro"
+      class="radioButton"
+      name="groupname"
+      value="val2"
+      [(ngModel)]="selectedValue"
+      label="Retiro"
     ></p-radioButton>
     <!-- retiro -------------------- -->
     <div class="div-retiro" *ngIf="selectedValue == 'val2'">
-      <p-dropdown [options]="sucursal" [(ngModel)]="selectSucursal" optionLabel="name" optionValue="code"></p-dropdown>
+      <p-dropdown
+        [options]="sucursal"
+        [(ngModel)]="selectSucursal"
+        optionLabel="name"
+        optionValue="code"
+      ></p-dropdown>
       <div class="radio-content">
         <p-radioButton
-        class="radioButton"
-        name="groupname"
-        value="1"
-        [(ngModel)]="selectedPay"
-        label="Efectivo"
+          class="radioButton"
+          name="groupname"
+          value="1"
+          [(ngModel)]="selectedPay"
+          label="Efectivo"
         ></p-radioButton>
         <p-radioButton
-        class="radioButton"
-        name="groupname"
-        value="2"
-        [(ngModel)]="selectedPay"
-        label="Pago seguro"
+          class="radioButton"
+          name="groupname"
+          value="2"
+          [(ngModel)]="selectedPay"
+          label="Pago seguro"
         ></p-radioButton>
       </div>
     </div>
@@ -59,17 +56,17 @@
   <!-- CONTAINER CART----------------- -->
   <div class="container">
     <!-- Shop  -->
-    <div id="shop" >
+    <div id="shop">
       <p-orderList
         [value]="productsCart"
         [listStyle]="{ height: 'auto' }"
         [dragdrop]="true"
       >
         <ng-template let-producto pTemplate="item">
-          <div class="product-item" >
-            <div class="content-image" >
+          <div class="product-item">
+            <div class="content-image">
               <img
-                src="{{producto.foto_carrito}}"
+                src="{{ producto.foto_carrito }}"
                 alt="carrito"
                 width="100%"
                 height="auto"
@@ -112,7 +109,9 @@
       </div>
       <div class="add-to-cart">
         <!-- <button style="width: 100%;" pButton type="button" label="Añadir al carrito"></button> -->
-        <button type="button" (click)="dataMenu()">Realizar compra</button>
+        <button type="button" (click)="dataMenu()" [disabled]="bloquear">
+          Realizar compra
+        </button>
       </div>
     </div>
   </div>

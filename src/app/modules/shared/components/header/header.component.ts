@@ -22,27 +22,19 @@ export class HeaderComponent implements OnInit {
 
   /* text: string;
   results: string[]; */
-  products: ProductI[];
+  products: ProductI[] = [];
   countries!: any[];
   selectedCountry!:string;
+
+  sideBar:any
 
   constructor(public api: ApiService, private cartService: CartService, private router: Router) {
 
    }
 
   ngOnInit(): void {
-    this.items = [
-      {label: 'Productos', icon: 'pi pi-fw pi-home', routerLink: ['']},
-      {label: 'Nuestras Tiendas', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Nosotros', icon: 'pi pi-fw pi-pencil'},
-      {label: 'Carrito', icon: 'pi pi-shopping-cart', routerLink: ['/cart']}
-    ];
-
     //Obtener productos
-    this.api.getAllProducts().subscribe(data=> {
-      this.products = data.data;
-    })
-
+    this.getProducts()
     this.countries = [
       {name: 'España', code: 'ES'},
     ];
@@ -56,6 +48,20 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  getProducts(){
+    this.api.getAllProducts().subscribe({
+      next: (res)=> {
+        res.data.map(item => {
+          if (item.es_compuesto === 0){
+            this.products.push(item)
+          }
+        })
+      }, error: (err)=> {
+        console.log(err)
+      }
+    })
+  }
+
   search(event:any) {
     /* this.mylookupservice.getResults(event.query).then(data => {
         this.results = data;
@@ -63,10 +69,18 @@ export class HeaderComponent implements OnInit {
   }
 
   addCart(product: ProductI){
-    this.cartService.addToCart(product);
-    this.router.navigate(['/cart'])
+    if(!localStorage.getItem('cart')){
+      localStorage.setItem('cart', JSON.stringify([product]))
+      window.location.href="/cart"
+    }else {
+      const cart = localStorage.getItem('cart')
+      let array = JSON.parse(cart!)
+      array.push(product)
+      localStorage.setItem('cart', JSON.stringify(array))
+      window.location.href="/cart"
+    }
   }
 
-  
+
 
 }

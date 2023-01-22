@@ -3,8 +3,7 @@ import { LoginI } from '../../models/Login/login.interface'
 import { ResponseI } from '../../models/Login/response.interface'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import {  Observable, VirtualTimeScheduler } from 'rxjs';
-import { ProductI } from '../../models/Productos/Products.interface'
-import { ResponseGET } from '../../models/Productos/Response.interface'
+import { ProductI, ResponseGET } from '../../models/Productos/Products.interface'
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +16,7 @@ export class ApiService {
     let direccion = this.url + "/login";
     return this.http.post<ResponseI>(direccion, form);
   }
+
   getAllProducts():Observable<ResponseGET>{
     let direccion = this.url + "/get_products";
     return this.http.get<ResponseGET>(direccion);

@@ -9,16 +9,27 @@
       <label for="email">Direccion de correo</label>
     </span>
     <span class="p-float-label">
-      <input #password id="input-password" type="password" pInputText required />
+      <input
+        #password
+        id="input-password"
+        type="password"
+        pInputText
+        required
+      />
       <label for="input-password">Contraseña</label>
     </span>
     <div class="button-container">
-      <button pButton class="button" label="Iniciar Sesion" (click)="validateLogin(username.value, password.value)"></button>
-      <button pButton class="button" label="Registrarse" ></button>
+      <button
+        pButton
+        class="button"
+        label="Iniciar Sesion"
+        (click)="validateLogin(username.value, password.value)"
+      ></button>
+      <button pButton class="button" label="Registrarse"></button>
     </div>
     <a href="/forgot-password">¿ Olvidó su contraseña ?</a>
     <p *ngIf="errorStatus">
-      {{errorMsj}}
+      {{ errorMsj }}
     </p>
   </div>
 </div>

@@ -1,12 +1,28 @@
+<!-- side Bar responsive  -->
+<p-sidebar [(visible)]="sideBar" position="right" [baseZIndex]="10000" class="sideBarBar">
+  <div class="sideBarContent">
+    <ul>
+      <li>
+        <a onclick="window.location.href=''">Productos</a>
+        <a onclick="window.location.href=''">Nuestras Tiendas</a>
+        <a onclick="window.location.href=''">Nosotros</a>
+        <a onclick="window.location.href='/cart'">Carrito</a>
+      </li>
+    </ul>
+    <div class="btnLogin">
+      <button pButton type="button" label="Iniciar Sesion"></button>
+    </div>
+  </div>
+</p-sidebar>
 <!--Main Container header-->
-<nav class="container">
+<nav class="container-header">
   <!--Main menu container-->
   <div class="col content-options">
     <div class="dropDown">
       <a class="dropDown-a" [routerLink]="['']">Productos</a>
       <div class="dropDown-content">
         <div class="dropDown-column" *ngFor="let element of products">
-          <a (click)="addCart(element)"><img src="{{element.foto_carrito}}" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
+          <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
         </div>
       </div>
     </div>
@@ -19,8 +35,7 @@
     <img
       src="../../../../../assets/icon_site.png"
       alt=""
-      height="auto"
-      width="100%"
+      style="width: 100px; height: 80px; object-fit: contain;"
       [routerLink]="['']"
     />
   </div>
@@ -97,6 +112,9 @@
           style="font-size: 1.3rem; margin-left: 15px"
         ></i>
       </div>
+    </div>
+    <div class="sidebar">
+      <button pButton type="button" class="mr-2" (click)="sideBar = true" icon="pi pi-bars"></button>
     </div>
   </div>
 </nav>

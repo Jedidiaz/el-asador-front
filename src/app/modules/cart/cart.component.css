@@ -230,3 +230,53 @@
   border-top: 1px solid #cccc;
 }
 
+:host ::ng-deep .p-element .p-inputnumber-button {
+  background-color: #5046E5;
+  border: none;
+}
+
+:host ::ng-deep .p-element .p-inputnumber-button:hover {
+  opacity: .5;
+  background-color: #5046E5;
+}
+
+:host ::ng-deep .p-button-icon {
+  color: #fff;
+}
+
+:host ::ng-deep .p-inputnumber-input, :host ::ng-deep .p-inputnumber-button{
+  width: 40px;
+}
+
+:host ::ng-deep .p-inputnumber.p-component.p-inputnumber-buttons-horizontal{
+  height: 40px;
+}
+
+.container-count{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* separe */
+.separe {
+  width: 10px;
+  border-top: 1px solid #000;
+}
+
+.prices{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nameProduct{
+    font-size: 15px;
+  }
+}

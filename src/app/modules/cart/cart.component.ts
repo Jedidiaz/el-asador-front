@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { PrimeIcons } from 'primeng/api';
 import { Sucursal } from './sucursal.model';
 import { ProductI } from '../../models/Productos/Products.interface';
@@ -11,88 +11,103 @@ import { CartService } from '../../servicios/cart/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-
 export class CartComponent implements OnInit {
   @Input() productHeader: ProductI;
   bloquear: boolean = false;
   name =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-  productsCart: Array<any>= [];
+  productsCart: {
+    id: number;
+    name: string;
+    contador: number;
+    image: string;
+    price: number;
+    priceX: number;
+  }[] = [];
   productSelect: any;
-  arrayId: Array<any>=[];
+  arrayId: Array<any> = [];
   itemsCart: ProductI[];
 
   count: any[] = [];
   countSelect: any;
   subtotal: number = 0;
-//-------------------------------------------------
-  option:boolean = false;
-  selectedValue:string = 'val1';
-  selectedPay:string = '1';
-//-------------------------------------------------
-  sucursal:Sucursal[] = [
-    {name: 'cra 44 # 85 esquina', code:'1'},
-    {name: 'cra 44 # 85 esquina', code:'2'},
-    {name: 'cra 44 # 85 esquina', code:'3'},
-    {name: 'cra 44 # 85 esquina', code:'4'},
-  ]
+  //-------------------------------------------------
+  option: boolean = false;
+  selectedValue: string = 'val1';
+  selectedPay: string = '1';
+  //-------------------------------------------------
+  sucursal: Sucursal[] = [
+    { name: 'cra 44 # 85 esquina', code: '1' },
+    { name: 'cra 44 # 85 esquina', code: '2' },
+    { name: 'cra 44 # 85 esquina', code: '3' },
+    { name: 'cra 44 # 85 esquina', code: '4' },
+  ];
   selectSucursal: string = '';
-//CONSTRUCTOR ------------------
-  constructor(private api: ApiService, private activeRoute: ActivatedRoute, private cartService: CartService) {
-  }
+  //CONSTRUCTOR ------------------
+  constructor(
+    private api: ApiService,
+    private activeRoute: ActivatedRoute,
+    private cartService: CartService
+  ) {}
   ngOnInit(): void {
-    //loadItemsCart---------------------
-    this.itemsCart = this.cartService.listCart();
-    for (let element of this.itemsCart){
-      this.productsCart.push({
-        id: element.id,
-        name: element.descripcion,
-        count: 1,
-        image: element.foto_carrito,
-        price: 50,
-        cateorgy: 'foot'
-      })
-    }
-    //Habilitar boton
-    this.habilitarBtn();
-    //Contador
-    this.count.push(
-      { name: '1', code: '1' },
-      { name: '2', code: '2' },
-      { name: '3', code: '3' },
-      { name: '4', code: '4' }
-    );
+    this.getProductsCart()
+    this.sumaSubtotal()
+  }
 
+
+  sumaSubtotal(){
     let suma = 0;
     this.productsCart.forEach(function (precio) {
-      suma = suma + precio.price;
+      suma = suma + precio.priceX;
     });
     this.subtotal = suma;
+  }
+
+  //get products
+  getProductsCart(){
+    const cart = localStorage.getItem('cart')
+    this.itemsCart = JSON.parse(cart!)
+    this.itemsCart.map(item=> {
+      this.productsCart.push({
+        id: item.id,
+        name: item.descripcion,
+        contador: 1,
+        image: item.foto_carrito,
+        price: 50,
+        priceX: 50
+      });
+    })
   }
 
   cancel(product: any) {
     let temp = this.productsCart.find((el) => el.id == product.id);
     if (temp != null) {
       this.productsCart.pop();
-      this.itemsCart.pop()
+      this.itemsCart.pop();
+      localStorage.setItem('cart', JSON.stringify(this.itemsCart))
       let suma = 0;
       this.productsCart.forEach(function (precio) {
-        suma = suma + precio.price;
-    });
+        suma = suma + precio.priceX;
+      });
       this.subtotal = suma;
-      if(suma == 0){
+      if (suma == 0) {
         this.bloquear = true;
       }
     }
   }
   //Data menu -----------------------------
-  dataMenu(){
+  dataMenu() {
     this.option = !this.option;
   }
 
-  habilitarBtn(){
-    if (this.productsCart.length > 0){
-      this.bloquear = false;
-    }
+  addMore(item: any, id: any){
+    let suma = 0
+    this.productsCart.map(el => {
+      if(el.id === id){
+        el.priceX = item
+      }
+      suma = suma + el.priceX
+    })
+    this.subtotal = suma
   }
 }

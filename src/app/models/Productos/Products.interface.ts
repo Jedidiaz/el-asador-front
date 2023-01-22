@@ -1,5 +1,5 @@
 export interface ProductI {
-  id: any;
+  id: number;
   codigo_articulo: string;
   descripcion_corta: string;
   descripcion: string;
@@ -16,4 +16,9 @@ export interface ProductI {
   es_promocion: number;
   foto_promocion: string;
   modified_at: string;
+}
+
+export interface ResponseGET {
+  response: string;
+  data: ProductI[];
 }

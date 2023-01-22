@@ -1,14 +1,15 @@
-.container {
+.container-header {
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(3, 1fr);
   padding: 5px 30px;
-  width: 100%;
+  width: 100vw;
   position: fixed;
   background: white;
   top: 0;
   z-index: 10;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 10%);
+  height: 100px;
   font-family: 'Bebas Neue';
 }
 
@@ -39,6 +40,7 @@
 }
 a{
   text-decoration: none;
+  color: #000;
 }
 .dropDown-a:hover{
   text-decoration: underline #000;
@@ -47,14 +49,25 @@ a{
 
 .dropDown-content{
   display: none;
-  /* flex-direction: row; */
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: repeat(3, 1fr);
   position: absolute;
   background-color: #fff;
   width: 96%;
   height: auto;
+  max-height: 400px;
   box-shadow: 0px 8px 16px 0px rgba(0 0 0 /10%);
+  overflow-y: scroll;
   z-index: 1;
+  padding: 30px;
+}
+
+.dropDown-content::-webkit-scrollbar{
+  background-color: #f1f1f1;
+}
+
+.dropDown-content::-webkit-scrollbar-thumb{
+  background-color: #ffd024;
+  border-radius: 20px;
 }
 
 .dropDown-column{
@@ -155,9 +168,9 @@ a{
   border: none;
 }
 .content-img {
-  width: 100px;
-  height: auto;
-  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -196,4 +209,74 @@ a{
 
 .cart:hover {
   cursor: pointer;
+}
+
+.sidebar, .sideBarBar{
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .container-user-actions, .content-options{
+    display: none;
+  }
+
+  .container-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .content-img{
+    width: 100%;
+    justify-content: start;
+  }
+
+  .sidebar, .sideBarBar{
+    display: flex;
+  }
+
+  :host ::ng-deep .p-button{
+    background-color: transparent;
+    border: 0;
+  }
+
+  :host ::ng-deep .p-button-icon	{
+    color: #000;
+    font-size: 30px;
+  }
+
+  .sideBarContent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sideBarContent ul{
+    padding: 0;
+    margin: 0;
+  }
+
+  .sideBarContent ul li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+  }
+
+  .btnLogin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .btnLogin .p-button{
+    background-color: #ffd024;
+    border-radius: 50px;
+    padding: 10px 40px;
+    font-size: 20px;
+  }
 }

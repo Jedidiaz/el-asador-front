@@ -28,7 +28,9 @@ import { ForgotPasswordComponent } from './modules/forgot-password/forgot-passwo
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { FormsModule } from '@angular/forms';
-
+import {InputNumberModule} from 'primeng/inputnumber';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,12 @@ import { FormsModule } from '@angular/forms';
     InputTextModule,
     RadioButtonModule,
     OverlayPanelModule,
-    FormsModule
+    FormsModule,
+    InputNumberModule,
+    ProgressSpinnerModule,
+    SidebarModule,
+
+
   ],
   providers: [CarouselService],
   bootstrap: [AppComponent]

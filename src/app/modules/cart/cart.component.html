@@ -16,7 +16,7 @@
       <div class="envio-content">
         <a [routerLink]="['/login']">Iniciar sesion</a>
         <div></div>
-        <input id="cod_postal" type="text" placeholder="Codigo Postal">
+        <input id="cod_postal" type="text" placeholder="Codigo Postal" />
       </div>
     </div>
     <p-radioButton
@@ -60,13 +60,13 @@
       <p-orderList
         [value]="productsCart"
         [listStyle]="{ height: 'auto' }"
-        [dragdrop]="true"
+        [dragdrop]="false"
       >
         <ng-template let-producto pTemplate="item">
           <div class="product-item">
             <div class="content-image">
               <img
-                src="{{ producto.foto_carrito }}"
+                [src]="producto.image"
                 alt="carrito"
                 width="100%"
                 height="auto"
@@ -74,27 +74,47 @@
             </div>
             <div class="product-list-detail">
               <div class="container-info">
-                <h5 class="mb-2" style="font-size: 1.2rem; font-weight: 400">
+                <h5 class="mb-2 nameProduct">
                   {{ producto.name }}
                 </h5>
-                <h6 class="mb-2" style="font-size: 1.5rem">
-                  €{{ producto.price }}
-                </h6>
+                <div>
+                  <div class="prices">
+                    <h6 class="mb-2" style="font-size: 1.5rem">
+                      €{{ producto.price }}
+                    </h6>
+                    <div class="separe"></div>
+                    <h6 class="mb-2" style="font-size: 1.5rem">
+                      €{{ producto.price * producto.contador }}
+                    </h6>
+                  </div>
+                  <div class="number">
+                    <p-inputNumber
+                      [(ngModel)]="producto.contador"
+                      [showButtons]="true"
+                      buttonLayout="horizontal"
+                      spinnerMode="horizontal"
+                      decrementButtonClass="p-button-danger"
+                      incrementButtonClass="p-button-success"
+                      incrementButtonIcon="pi pi-plus"
+                      decrementButtonIcon="pi pi-minus"
+                      (onInput)="
+                        addMore(producto.price * producto.contador, producto.id)
+                      "
+                    ></p-inputNumber>
+                  </div>
+                </div>
               </div>
               <div class="container-count">
-                <p-dropdown
-                  [options]="count"
-                  (ngModel)="(countSelect)"
-                  optionLabel="name"
-                ></p-dropdown>
-              </div>
-
-              <div class="product-list-action">
-                <i
-                  class="pi pi-times"
-                  (click)="cancel(producto)"
-                  tyle="font-size: 1rem"
-                ></i>
+                <div
+                  class="product-list-action"
+                  style="width: 100%; text-align: end"
+                >
+                  <i
+                    class="pi pi-times"
+                    (click)="cancel(producto)"
+                    tyle="font-size: 1rem"
+                  ></i>
+                </div>
               </div>
             </div>
           </div>
@@ -109,7 +129,11 @@
       </div>
       <div class="add-to-cart">
         <!-- <button style="width: 100%;" pButton type="button" label="Añadir al carrito"></button> -->
-        <button type="button" (click)="dataMenu()" [disabled]="bloquear">
+        <button
+          type="button"
+          [disabled]="productsCart.length === 0"
+          (click)="dataMenu()"
+        >
           Realizar compra
         </button>
       </div>

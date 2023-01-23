@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   getProductsCarousel() {
     this.api.getAllProducts()
       .subscribe({
-        next: (res)=> {
+        next: (res: { data: any[]; })=> {
           res.data.map(item => {
             if (item.es_carrusel === 1){
               this.carousel.push(item)
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
             }
           })
           console.log(this.carousel)
-        }, error: (err)=> {
+        }, error: (err: any)=> {
           console.log(err)
         }
       })

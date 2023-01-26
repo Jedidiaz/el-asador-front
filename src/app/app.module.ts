@@ -33,6 +33,7 @@ import { ForgotPasswordComponent } from './modules/forgot-password/forgot-passwo
 
 //services
 import { CarouselService } from './servicios/carousel/carousel.service';
+import { PayMComponent } from './modules/pay-m/pay-m.component';
 
 
 
@@ -46,6 +47,7 @@ import { CarouselService } from './servicios/carousel/carousel.service';
     CartComponent,
     LoginComponent,
     ForgotPasswordComponent,
+    PayMComponent,
   ],
   imports: [
     BrowserModule,

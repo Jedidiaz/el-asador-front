@@ -27,7 +27,6 @@
         />
         <label for="input-password">Contraseña</label>
       </span>
-      <p [style]="{'color': messageError.color}">{{messageError.message}}</p>
       <div class="button-container">
         <button
           pButton
@@ -36,8 +35,9 @@
           type="submit"
           [disabled]="!formLogin.valid"
         ></button>
-        <!-- <button pButton class="button" type="button" label="Registrarse"></button> -->
+        <button pButton class="button" type="button" label="Registrarse"></button>
       </div>
+      <p [style]="{'color': messageError.color}">{{messageError.message}}</p>
       <a href="/forgot-password">¿ Olvidó su contraseña ?</a>
     </form>
   </div>

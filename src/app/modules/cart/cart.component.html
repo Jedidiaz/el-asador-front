@@ -1,4 +1,9 @@
-<app-pay-m></app-pay-m>
+<app-pay-m
+  [subtotal]="subtotal"
+  [setVisible]="setVisible"
+  *ngIf="setVisible"
+  (messageEvent)="receiveMessage($event)"
+></app-pay-m>
 <div class="main">
   <div class="data" *ngIf="option == true">
     <div class="title">
@@ -133,7 +138,7 @@
         <button
           type="button"
           [disabled]="productsCart.length === 0"
-          (click)="dataMenu()"
+          (click)="setVisible = true"
         >
           Realizar compra
         </button>

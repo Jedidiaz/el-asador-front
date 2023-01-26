@@ -68,6 +68,7 @@
   width: 100%;
   padding: 8px 15px;
   background-color: #5046E5;
+  border: 0;
 }
 
 :host::ng-deep .p-button-label{
@@ -92,4 +93,35 @@
 
 :host::ng-deep .p-inputtext, .p-dropdown{
   width: 100%;
+}
+
+.buttonRetiro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.buttonRetiro button, .btnPagar{
+  font-family: 'Bebas Neue';
+  width: 100%;
+  padding: 8px 15px;
+  background: #5046E5;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.buttonRetiro button:active , .btnPagar:active{
+  transform: scale(1.01);
+}
+
+.buttonRetiro button:disabled , .btnPagar:disabled{
+  background-color: #b3b3b3;
+  transform: scale(1);
+  cursor: default;
 }

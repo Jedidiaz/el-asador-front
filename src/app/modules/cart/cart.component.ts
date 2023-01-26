@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
   selectedValue: string = 'val1';
   selectedPay: string = '1';
   //-------------------------------------------------
+  setVisible: boolean = false
   sucursal: Sucursal[] = [
     { name: 'cra 44 # 85 esquina', code: '1' },
     { name: 'cra 44 # 85 esquina', code: '2' },
@@ -54,6 +55,9 @@ export class CartComponent implements OnInit {
     this.sumaSubtotal()
   }
 
+  receiveMessage($event: any) {
+    this.setVisible = $event
+  }
 
   sumaSubtotal(){
     let suma = 0;

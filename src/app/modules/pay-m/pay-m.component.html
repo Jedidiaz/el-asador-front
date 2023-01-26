@@ -4,14 +4,17 @@
     <h3>Escoge una opcion</h3>
     <!-- metodo envio -->
     <div class="MetodoEnvioContent">
-      <p-radioButton
-        class="radioButton"
-        name="metodoOrden"
-        value="val1"
-        [(ngModel)]="selectedValue"
-        label="Envio"
-        (onClick)="formRetiro.reset()"
-      ></p-radioButton>
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <p-radioButton
+          class="radioButton"
+          name="metodoOrden"
+          value="val1"
+          [(ngModel)]="selectedValue"
+          label="Envio"
+          (onClick)="formRetiro.reset()"
+        ></p-radioButton>
+        <p style="cursor: pointer;" (click)="back()"><i class="pi pi-times"></i> </p>
+      </div>
       <p-radioButton
         class="radioButton"
         name="metodoOrden"
@@ -78,7 +81,7 @@
     </div>
     <!-- retiro -->
     <div class="retiroContent" *ngIf="selectedValue === 'val2'">
-      <form [formGroup]="formRetiro" class="formulario" (ngSubmit)="createorderRetiro()">
+      <form [formGroup]="formRetiro" class="formulario" (ngSubmit)="createorderRetiro()" *ngIf="!paySure">
         <p-dropdown
           [options]="sucursal"
           optionLabel="name"
@@ -125,14 +128,15 @@
           required
         />
         <div class="buttonRetiro">
-          <button type="button" (click)="createorderRetiro()">retirar</button>
+          <button type="button" (click)="createorderRetiro()" [disabled]="!formRetiro.valid">Ordenar</button>
         </div>
-        <form name="from" id="payform" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
-          <input type="hidden" name="Ds_SignatureVersion" [value]="Ds_SignatureVersion" />
-          <input type="hidden" name="Ds_MerchantParameters" [value]="Ds_MerchantParameters" />
-          <input type="hidden" name="Ds_Signature" [value]="Ds_Signature" />
-          <input type="submit" value="Pay">
-        </form>
+      </form>
+      <button type="button" (click)="pagar()" class="btnPagar" *ngIf="paySure">Pagar</button>
+      <form name="from" id="payform" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST" style="display: none;">
+        <input type="hidden" name="Ds_SignatureVersion" [value]="Ds_SignatureVersion" />
+        <input type="hidden" name="Ds_MerchantParameters" [value]="Ds_MerchantParameters" />
+        <input type="hidden" name="Ds_Signature" [value]="Ds_Signature" />
+        <input type="submit" value="Pay">
       </form>
     </div>
   </div>

@@ -1,7 +1,7 @@
 import { DataGeneratorTokenModel } from './../../models/Cart/cart.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/servicios/api/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -11,6 +11,10 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService],
 })
 export class PayMComponent implements OnInit {
+  @Input() subtotal:any
+  @Input() setVisible:any
+  @Output() messageEvent = new EventEmitter<boolean>();
+
   option: boolean = false;
   selectedValue: string = 'val1';
   selectedPay: string = '1';
@@ -22,6 +26,7 @@ export class PayMComponent implements OnInit {
   Ds_MerchantParameters = ''
   Ds_SignatureVersion = ''
   Ds_Signature = ''
+  paySure: boolean = false
   constructor(
     private api: ApiService,
     private formbuilder: FormBuilder,
@@ -51,7 +56,6 @@ export class PayMComponent implements OnInit {
             code: item.id,
           });
         });
-        console.log(this.sucursal);
       },
       error: (err) => {
         console.log(err);
@@ -83,24 +87,25 @@ export class PayMComponent implements OnInit {
   //orders
   createorderRetiro() {
     const form = new FormData()
-    form.append('amount', '100')
+    form.append('amount', this.subtotal)
     this.api.GenerateOrder(form).subscribe({
       next: (res)=> {
         this.Ds_MerchantParameters = res.data.Ds_MerchantParameters
         this.Ds_SignatureVersion = res.data.Ds_SignatureVersion
         this.Ds_Signature = res.data.Ds_Signature
-        const ff = document.getElementById('payform')
-        ff?.onsubmit
+        console.log('entré')
       }
     })
+    this.paySure = true
   }
 
-  pago(){
-    fetch ('https://sis-t.redsys.es:25443/sis/realizarPago', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((res)=> console.log(res))
+  pagar(){
+    const formpay = (<HTMLFormElement>document.querySelector('#payform'))
+    formpay.submit()
+  }
+
+  //back
+  back(){
+    this.messageEvent.emit(this.setVisible = false)
   }
 }

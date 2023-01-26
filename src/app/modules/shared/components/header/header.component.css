@@ -52,12 +52,17 @@ a{
   grid-template-columns: repeat(3, 1fr);
   position: absolute;
   background-color: #fff;
-  width: 96%;
+  width: 100%;
+  left: 0;
   height: auto;
-  max-height: 400px;
+  max-height: 100vh;
   box-shadow: 0px 8px 16px 0px rgba(0 0 0 /10%);
   overflow-y: scroll;
   z-index: 1;
+  padding: 30px;
+}
+
+.dropDown-column{
   padding: 30px;
 }
 

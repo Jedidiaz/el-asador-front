@@ -3,10 +3,11 @@
   <div class="sideBarContent">
     <ul>
       <li>
-        <a onclick="window.location.href=''">Productos</a>
-        <a onclick="window.location.href=''">Nuestras Tiendas</a>
-        <a onclick="window.location.href=''">Nosotros</a>
-        <a onclick="window.location.href='/cart'">Carrito</a>
+        <a onclick="window.location.href=''">Nuestra selección</a>
+        <a onclick="window.location.href=''">Comidas caseras</a>
+        <a onclick="window.location.href=''">Platos frios</a>
+        <a onclick="window.location.href=''">Repostería</a>
+        <a onclick="window.location.href=''">bebidas</a>
       </li>
     </ul>
     <div class="btnLogin">
@@ -19,16 +20,17 @@
   <!--Main menu container-->
   <div class="col content-options">
     <div class="dropDown">
-      <a class="dropDown-a" [routerLink]="['']">Productos</a>
+      <a class="dropDown-a" [routerLink]="['']">Nuestra selección</a>
       <div class="dropDown-content">
-        <div class="dropDown-column" *ngFor="let element of products">
-          <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
+          <div class="dropDown-column" *ngFor="let element of products">
+            <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
         </div>
       </div>
     </div>
-    <a onclick="window.location.href=''">Nuestras Tiendas</a>
-    <a onclick="window.location.href=''">Nosotros</a>
-    <a [routerLink]="['/cart']">Carrito</a>
+    <a onclick="window.location.href=''">Comidas caseras</a>
+    <a onclick="window.location.href=''">Platos frios</a>
+    <a onclick="window.location.href=''">Repostería</a>
+    <a onclick="window.location.href=''">bebidas</a>
   </div>
   <!--Image Container-->
   <div class="col content-img">

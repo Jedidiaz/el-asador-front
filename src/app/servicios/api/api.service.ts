@@ -12,7 +12,7 @@ export class ApiService {
   url: string = "https://api-solaricca.cmc-software.com/rest";
   constructor(private http: HttpClient) { }
 
-  onLogin(form:LoginI):Observable<ResponseI>{
+  onLogin(form: FormData):Observable<ResponseI>{
     let direccion = this.url + "/login";
     return this.http.post<ResponseI>(direccion, form);
   }
@@ -28,5 +28,11 @@ export class ApiService {
 
   loggedIn(){
     return !!localStorage.getItem("token")
+  }
+
+
+  //cart
+  VerifyCodPostal(form: FormData):Observable<any>{
+    return this.http.post<any>(`${this.url}/verify_postalcode`, form)
   }
 }

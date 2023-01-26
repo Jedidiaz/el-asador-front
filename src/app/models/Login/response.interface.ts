@@ -1,5 +1,12 @@
 export interface ResponseI{
   response: string;
-  data: any;
-  token: any;
+  data: dataModel
+  error: string
+  token: string
+}
+
+export interface dataModel {
+  name: string
+  role: string
+
 }

@@ -4,32 +4,41 @@
     <div class="container-img">
       <img src="../../../assets/icon_site.png" alt="" />
     </div>
-    <span class="p-float-label">
-      <input #username id="input-email" type="email" pInputText required />
-      <label for="email">Direccion de correo</label>
-    </span>
-    <span class="p-float-label">
-      <input
-        #password
-        id="input-password"
-        type="password"
-        pInputText
-        required
-      />
-      <label for="input-password">Contraseña</label>
-    </span>
-    <div class="button-container">
-      <button
-        pButton
-        class="button"
-        label="Iniciar Sesion"
-        (click)="validateLogin(username.value, password.value)"
-      ></button>
-      <button pButton class="button" label="Registrarse"></button>
-    </div>
-    <a href="/forgot-password">¿ Olvidó su contraseña ?</a>
-    <p *ngIf="errorStatus">
-      {{ errorMsj }}
-    </p>
+    <form [formGroup]="formLogin" (ngSubmit)="validateLogin()">
+      <span class="p-float-label">
+        <input
+          #username
+          id="input-email"
+          type="email"
+          pInputText
+          formControlName="email"
+          required
+        />
+        <label for="email">Direccion de correo</label>
+      </span>
+      <span class="p-float-label">
+        <input
+          #password
+          id="input-password"
+          type="password"
+          pInputText
+          formControlName="password"
+          required
+        />
+        <label for="input-password">Contraseña</label>
+      </span>
+      <p [style]="{'color': messageError.color}">{{messageError.message}}</p>
+      <div class="button-container">
+        <button
+          pButton
+          class="button"
+          label="Iniciar Sesion"
+          type="submit"
+          [disabled]="!formLogin.valid"
+        ></button>
+        <!-- <button pButton class="button" type="button" label="Registrarse"></button> -->
+      </div>
+      <a href="/forgot-password">¿ Olvidó su contraseña ?</a>
+    </form>
   </div>
 </div>

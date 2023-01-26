@@ -65,18 +65,20 @@ export class CartComponent implements OnInit {
 
   //get products
   getProductsCart(){
-    const cart = localStorage.getItem('cart')
-    this.itemsCart = JSON.parse(cart!)
-    this.itemsCart.map(item=> {
-      this.productsCart.push({
-        id: item.id,
-        name: item.descripcion,
-        contador: 1,
-        image: item.foto_carrito,
-        price: 50,
-        priceX: 50
-      });
-    })
+    if (localStorage.getItem('cart')){
+      const cart = localStorage.getItem('cart')
+      this.itemsCart = JSON.parse(cart!)
+      this.itemsCart.map(item=> {
+        this.productsCart.push({
+          id: item.id,
+          name: item.descripcion,
+          contador: 1,
+          image: item.foto_carrito,
+          price: 50,
+          priceX: 50
+        });
+      })
+    }
   }
 
   cancel(product: any) {
@@ -101,13 +103,29 @@ export class CartComponent implements OnInit {
   }
 
   addMore(item: any, id: any){
-    let suma = 0
-    this.productsCart.map(el => {
-      if(el.id === id){
-        el.priceX = item
+    if (localStorage.getItem('cart')){
+      let suma = 0
+      this.productsCart.map(el => {
+        if(el.id === id){
+          el.priceX = item
+        }
+        suma = suma + el.priceX
+      })
+      this.subtotal = suma
+    }
+  }
+
+
+  //verificar codigo postal
+  verify(){
+    const form = new FormData()
+    form.append('postal_code', '41010')
+    this.api.VerifyCodPostal(form).subscribe({
+      next:(res)=> {
+        console.log(res)
+      }, error:(err)=> {
+        console.log(err)
       }
-      suma = suma + el.priceX
     })
-    this.subtotal = suma
   }
 }

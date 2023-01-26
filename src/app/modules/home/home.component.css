@@ -58,7 +58,7 @@
 :host ::ng-deep .p-carousel-container{
   display: flex;
   height: calc(100vh - 100px);
-  width: 100vw;
+  width: calc(100vw - 14px);
 }
 
 :host ::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button{

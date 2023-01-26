@@ -38,11 +38,12 @@ margin: 0px 5px;
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
 }
-h4{
+h5{
   padding-bottom: 5px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: #000000;
+  cursor: pointer;
 }
 .last{
   height: 100px;

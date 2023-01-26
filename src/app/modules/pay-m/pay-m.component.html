@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="overlay">
   <div class="content">
     <h3>Escoge una opcion</h3>
@@ -5,22 +6,134 @@
     <div class="MetodoEnvioContent">
       <p-radioButton
         class="radioButton"
-        name="groupname"
+        name="metodoOrden"
         value="val1"
         [(ngModel)]="selectedValue"
         label="Envio"
+        (onClick)="formRetiro.reset()"
       ></p-radioButton>
       <p-radioButton
         class="radioButton"
-        name="groupname"
-        value="val1"
+        name="metodoOrden"
+        value="val2"
         [(ngModel)]="selectedValue"
-        label="Envio"
+        label="Retiro"
+        (onClick)="passEnvio = false; formRetiro.reset()"
       ></p-radioButton>
     </div>
     <!-- envio -->
-    <div class="envioContent"></div>
+    <div class="postalCodeSelect" *ngIf="selectedValue === 'val1' && !passEnvio">
+      <div class="inputPostal">
+        <a [href]="'/login'+ '?cart=true'">Iniciar sesion</a>
+        <div class="separe"></div>
+        <input type="number" placeholder="Codigo postal" #postal>
+      </div>
+      <div class="buttonPostalV">
+        <button pButton label="VERIFICAR" type="button" (click)="verifyPostalCode(postal.value)" ></button>
+      </div>
+    </div>
+    <div class="envioContent" *ngIf="passEnvio && selectedValue === 'val1'">
+      <form [formGroup]="formRetiro" class="formulario" (ngSubmit)="createorderRetiro()">
+        <input
+          pInputText
+          type="text"
+          placeholder="Nombre"
+          formControlName="name"
+          required
+        />
+        <div class="lastName">
+          <input
+            pInputText
+            type="text"
+            placeholder="Primer apellido"
+            formControlName="lastName1"
+            required
+          />
+          <input
+            pInputText
+            type="text"
+            placeholder="Segundo apellido"
+            formControlName="lastName2"
+            required
+          />
+        </div>
+        <input
+          pInputText
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          required
+        />
+        <input
+          pInputText
+          type="number"
+          placeholder="Movil"
+          formControlName="phone"
+          required
+        />
+        <div class="buttonRetiro">
+          <button type="submit">retirar</button>
+        </div>
+      </form>
+    </div>
     <!-- retiro -->
-    <div class="retiroContent"></div>
+    <div class="retiroContent" *ngIf="selectedValue === 'val2'">
+      <form [formGroup]="formRetiro" class="formulario" (ngSubmit)="createorderRetiro()">
+        <p-dropdown
+          [options]="sucursal"
+          optionLabel="name"
+          optionValue="name"
+          placeholder="Escoja una opción"
+          formControlName="sucursal"
+          name="sucursal"
+        ></p-dropdown>
+        <input
+          pInputText
+          type="text"
+          placeholder="Nombre"
+          formControlName="name"
+          required
+        />
+        <div class="lastName">
+          <input
+            pInputText
+            type="text"
+            placeholder="Primer apellido"
+            formControlName="lastName1"
+            required
+          />
+          <input
+            pInputText
+            type="text"
+            placeholder="Segundo apellido"
+            formControlName="lastName2"
+            required
+          />
+        </div>
+        <input
+          pInputText
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          required
+        />
+        <input
+          pInputText
+          type="number"
+          placeholder="Movil"
+          formControlName="phone"
+          required
+        />
+        <div class="buttonRetiro">
+          <button type="button" (click)="createorderRetiro()">retirar</button>
+        </div>
+        <form name="from" id="payform" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+          <input type="hidden" name="Ds_SignatureVersion" [value]="Ds_SignatureVersion" />
+          <input type="hidden" name="Ds_MerchantParameters" [value]="Ds_MerchantParameters" />
+          <input type="hidden" name="Ds_Signature" [value]="Ds_Signature" />
+          <input type="submit" value="Pay">
+        </form>
+      </form>
+    </div>
   </div>
 </div>

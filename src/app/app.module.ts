@@ -20,6 +20,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {SidebarModule} from 'primeng/sidebar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import {ToastModule} from 'primeng/toast';
 
 //Components
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { ForgotPasswordComponent } from './modules/forgot-password/forgot-passwo
 //services
 import { CarouselService } from './servicios/carousel/carousel.service';
 import { PayMComponent } from './modules/pay-m/pay-m.component';
+import { PaySureComponent } from './modules/pay-sure/pay-sure.component';
 
 
 
@@ -48,6 +50,7 @@ import { PayMComponent } from './modules/pay-m/pay-m.component';
     LoginComponent,
     ForgotPasswordComponent,
     PayMComponent,
+    PaySureComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { PayMComponent } from './modules/pay-m/pay-m.component';
     SidebarModule,
     ReactiveFormsModule,
     FormsModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

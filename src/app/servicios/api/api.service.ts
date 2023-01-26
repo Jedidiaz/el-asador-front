@@ -1,3 +1,4 @@
+import { ResponseSucursalModel, ResponseGenerateTokenModel } from './../../models/Cart/cart.interface';
 import { Injectable } from '@angular/core';
 import { LoginI } from '../../models/Login/login.interface'
 import { ResponseI } from '../../models/Login/response.interface'
@@ -34,5 +35,13 @@ export class ApiService {
   //cart
   VerifyCodPostal(form: FormData):Observable<any>{
     return this.http.post<any>(`${this.url}/verify_postalcode`, form)
+  }
+
+  GenerateOrder(form: FormData):Observable<ResponseGenerateTokenModel>{
+    return this.http.post<ResponseGenerateTokenModel>(`${this.url}/generate_paytoken`, form)
+  }
+
+  getSucursal():Observable<ResponseSucursalModel>{
+    return this.http.get<ResponseSucursalModel>(`${this.url}/get_offices`)
   }
 }

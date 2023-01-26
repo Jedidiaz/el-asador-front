@@ -10,5 +10,86 @@
 }
 
 .content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  gap: 15px;
+}
 
+/* metodo envio */
+.MetodoEnvioContent, .postalCodeSelect, .envioContent, .retiroContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+  padding: 15px 15px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 9px 0px rgba(134, 133, 133, 0.75);
+}
+
+/* envioPostal */
+.inputPostal, .buttonPostalV{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.separe{
+  display: flex;
+  border-left: 1px solid #b3b3b3;
+  height: 30px;
+}
+
+.inputPostal a, .inputPostal input{
+  font-size: 18px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px dashed #b3b3b3;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffd024;
+  outline: none;
+}
+
+.inputPostal input{
+  color: #b3b3b3 !important;
+}
+
+:host::ng-deep .p-button{
+  width: 100%;
+  padding: 8px 15px;
+  background-color: #5046E5;
+}
+
+:host::ng-deep .p-button-label{
+  color: #fff;
+  font-weight: 500;
+}
+
+/*  formularios */
+.formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.formulario .lastName{
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+:host::ng-deep .p-inputtext, .p-dropdown{
+  width: 100%;
 }

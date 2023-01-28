@@ -86,8 +86,9 @@ export class PayMComponent implements OnInit {
 
   //orders
   createorderRetiro() {
+    console.log(this.subtotal)
     const form = new FormData()
-    form.append('amount', this.subtotal)
+    form.append('amount', this.subtotal + '00')
     this.api.GenerateOrder(form).subscribe({
       next: (res)=> {
         this.Ds_MerchantParameters = res.data.Ds_MerchantParameters

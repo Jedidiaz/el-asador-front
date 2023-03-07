@@ -4,7 +4,14 @@
     <h3>Escoge una opcion</h3>
     <!-- metodo envio -->
     <div class="MetodoEnvioContent">
-      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+        "
+      >
         <p-radioButton
           class="radioButton"
           name="metodoOrden"
@@ -13,7 +20,9 @@
           label="Envio"
           (onClick)="formRetiro.reset()"
         ></p-radioButton>
-        <p style="cursor: pointer;" (click)="back()"><i class="pi pi-times"></i> </p>
+        <p style="cursor: pointer" (click)="back()">
+          <i class="pi pi-times"></i>
+        </p>
       </div>
       <p-radioButton
         class="radioButton"
@@ -25,22 +34,37 @@
       ></p-radioButton>
     </div>
     <!-- envio -->
-    <div class="postalCodeSelect" *ngIf="selectedValue === 'val1' && !passEnvio">
+    <div
+      class="postalCodeSelect"
+      *ngIf="selectedValue === 'val1' && !passEnvio && !login"
+    >
       <div class="inputPostal">
-        <a [href]="'/login'+ '?cart=true'">Iniciar sesion</a>
+        <a [href]="'/login' + '?cart=true'">Iniciar sesion</a>
         <div class="separe"></div>
-        <input type="number" placeholder="Codigo postal" #postal>
+        <input type="number" placeholder="Codigo postal" #postal />
       </div>
       <div class="buttonPostalV">
-        <button pButton label="VERIFICAR" type="button" (click)="verifyPostalCode(postal.value)" ></button>
+        <button
+          pButton
+          label="VERIFICAR"
+          type="button"
+          (click)="verifyPostalCode(postal.value)"
+        ></button>
       </div>
     </div>
-    <div class="envioContent" *ngIf="passEnvio && selectedValue === 'val1'">
-      <form [formGroup]="formRetiro" class="formulario" (ngSubmit)="createorderRetiro()">
+    <div
+      class="envioContent"
+      *ngIf="(passEnvio && selectedValue === 'val1') || login"
+    >
+      <form
+        [formGroup]="formEnvio"
+        class="formulario"
+        (ngSubmit)="submitEnvio()"
+      >
         <input
           pInputText
           type="text"
-          placeholder="Nombre"
+          placeholder="Nombre*"
           formControlName="name"
           required
         />
@@ -48,14 +72,14 @@
           <input
             pInputText
             type="text"
-            placeholder="Primer apellido"
+            placeholder="Primer apellido*"
             formControlName="lastName1"
             required
           />
           <input
             pInputText
             type="text"
-            placeholder="Segundo apellido"
+            placeholder="Segundo apellido*"
             formControlName="lastName2"
             required
           />
@@ -63,25 +87,69 @@
         <input
           pInputText
           type="email"
-          placeholder="Email"
+          placeholder="Email*"
           formControlName="email"
           required
         />
         <input
           pInputText
           type="number"
-          placeholder="Movil"
+          placeholder="Movil*"
           formControlName="phone"
           required
         />
+        <div class="lastName">
+          <input
+            pInputText
+            type="text"
+            placeholder="Nom domicilio*"
+            formControlName="nombreDirect"
+            required
+          />
+          <input
+            pInputText
+            type="text"
+            placeholder="Direccion*"
+            formControlName="direccion"
+            required
+          />
+        </div>
+        <input
+          pInputText
+          type="text"
+          placeholder="Codigo postal*"
+          formControlName="codPostal"
+          required
+        />
+        <input
+          pInputText
+          type="text"
+          placeholder="Poblacion, provincia"
+          formControlName="lastName2"
+          required
+          readonly
+        />
+        <textarea
+          name="descripcion"
+          class="form-control"
+          cols="3"
+          placeholder="descripcion"
+          formControlName="descripcion"
+        ></textarea>
         <div class="buttonRetiro">
-          <button type="submit">retirar</button>
+          <button type="submit" >retirar</button>
+          <button type="submit" >Agregar</button>
         </div>
       </form>
     </div>
     <!-- retiro -->
     <div class="retiroContent" *ngIf="selectedValue === 'val2'">
-      <form [formGroup]="formRetiro" class="formulario" (ngSubmit)="createorderRetiro()" *ngIf="!paySure">
+      <form
+        [formGroup]="formRetiro"
+        class="formulario"
+        (ngSubmit)="createorderRetiro()"
+        *ngIf="!paySure"
+      >
         <p-dropdown
           [options]="sucursal"
           optionLabel="name"
@@ -128,15 +196,37 @@
           required
         />
         <div class="buttonRetiro">
-          <button type="button" (click)="createorderRetiro()" [disabled]="!formRetiro.valid">Ordenar</button>
+          <button
+            type="button"
+            (click)="createorderRetiro()"
+            [disabled]="!formRetiro.valid"
+          >
+            Ordenar
+          </button>
         </div>
       </form>
-      <button type="button" (click)="pagar()" class="btnPagar" *ngIf="paySure">Pagar</button>
-      <form name="from" id="payform" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST" style="display: none;">
-        <input type="hidden" name="Ds_SignatureVersion" [value]="Ds_SignatureVersion" />
-        <input type="hidden" name="Ds_MerchantParameters" [value]="Ds_MerchantParameters" />
+      <button type="button" (click)="pagar()" class="btnPagar" *ngIf="paySure">
+        Pagar
+      </button>
+      <form
+        name="from"
+        id="payform"
+        action="https://sis-t.redsys.es:25443/sis/realizarPago"
+        method="POST"
+        style="display: none"
+      >
+        <input
+          type="hidden"
+          name="Ds_SignatureVersion"
+          [value]="Ds_SignatureVersion"
+        />
+        <input
+          type="hidden"
+          name="Ds_MerchantParameters"
+          [value]="Ds_MerchantParameters"
+        />
         <input type="hidden" name="Ds_Signature" [value]="Ds_Signature" />
-        <input type="submit" value="Pay">
+        <input type="submit" value="Pay" />
       </form>
     </div>
   </div>

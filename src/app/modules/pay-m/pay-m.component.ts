@@ -21,12 +21,14 @@ export class PayMComponent implements OnInit {
 
   sucursal: Array<any> = [];
   formRetiro: FormGroup;
+  formEnvio: FormGroup;
   passEnvio: boolean = false;
   data: DataGeneratorTokenModel
   Ds_MerchantParameters = ''
   Ds_SignatureVersion = ''
   Ds_Signature = ''
   paySure: boolean = false
+  login: boolean = false
   constructor(
     private api: ApiService,
     private formbuilder: FormBuilder,
@@ -40,11 +42,24 @@ export class PayMComponent implements OnInit {
       phone: ['', Validators.required],
       sucursal: [''],
     });
+    this.formEnvio = formbuilder.group({
+      name: ['', Validators.required],
+      lastName1: ['', Validators.required],
+      lastName2: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      nombreDirect: ['', Validators.required],
+      codPostal: ['', Validators.required],
+      direccion: ['', Validators.required],
+      descripcion: ['', Validators.required],
+    });
   }
 
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')) this.login = true
     this.getSucursales();
+
   }
 
   getSucursales() {
@@ -82,6 +97,11 @@ export class PayMComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+
+  //create or add
+  submitEnvio(){
+
   }
 
   //orders

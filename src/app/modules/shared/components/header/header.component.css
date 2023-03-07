@@ -96,7 +96,20 @@ a{
   margin: 0px 0px 30px 50px;
 }
 
-.dropDown:hover .dropDown-content{
+.dropDown:hover .cero{
+  display: grid;
+}
+
+.dropDown1:hover .uno{
+  display: grid;
+}
+.dropDown2:hover .dos{
+  display: grid;
+}
+.dropDown3:hover .tres{
+  display: grid;
+}
+.dropDown4:hover .cuatro{
   display: grid;
 }
 /* ----------------------------------------------------------------- */
@@ -114,6 +127,7 @@ a{
   align-items: center;
   list-style: none;
 }
+
 .content-options2 ul li {
   padding: 3px 25px;
 }

@@ -23,6 +23,12 @@ export class HeaderComponent implements OnInit {
   /* text: string;
   results: string[]; */
   products: ProductI[] = [];
+  nuestra: ProductI[]= []
+  comidas: ProductI[]= []
+  platos: ProductI[]= []
+  reposteria: ProductI[]= []
+  bebidas: ProductI[]= []
+
   countries!: any[];
   selectedCountry!:string;
 
@@ -51,9 +57,15 @@ export class HeaderComponent implements OnInit {
   getProducts(){
     this.api.getAllProducts().subscribe({
       next: (res)=> {
+        console.log(res)
         res.data.map(item => {
           if (item.es_compuesto === 0){
             this.products.push(item)
+            if(item.familia === 'nuestra_seleccion') this.nuestra.push(item)
+            else if(item.familia === 'comidas_caseras') this.comidas.push(item)
+            else if(item.familia === 'platos_frios') this.platos.push(item)
+            else if(item.familia === 'reposteria') this.reposteria.push(item)
+            else if(item.familia === 'bebidas') this.bebidas.push(item)
           }
         })
       }, error: (err)=> {

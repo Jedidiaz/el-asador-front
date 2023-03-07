@@ -125,3 +125,12 @@
   transform: scale(1);
   cursor: default;
 }
+
+input:read-only{
+  background-color: #f1f1f1;
+  cursor: default;
+}
+
+textarea{
+  font-family: Arial, Helvetica, sans-serif;
+}

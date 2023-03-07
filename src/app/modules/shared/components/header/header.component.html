@@ -21,17 +21,46 @@
   <div class="col content-options">
     <div class="dropDown">
       <a class="dropDown-a" [routerLink]="['']">Nuestra selección</a>
-      <div class="dropDown-content">
-          <div class="dropDown-column" *ngFor="let element of products">
+      <div class="dropDown-content cero">
+          <div class="dropDown-column" *ngFor="let element of nuestra">
             <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
         </div>
       </div>
     </div>
-    <a onclick="window.location.href=''">Comidas caseras</a>
-    <a onclick="window.location.href=''">Platos frios</a>
-    <a onclick="window.location.href=''">Repostería</a>
-    <a onclick="window.location.href=''">bebidas</a>
+    <div class="dropDown1">
+      <a class="dropDown-a" [routerLink]="['']">Comidas caseras</a>
+      <div class="dropDown-content uno">
+          <div class="dropDown-column" *ngFor="let element of comidas">
+            <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="dropDown2">
+      <a class="dropDown-a" [routerLink]="['']">Platos frios</a>
+      <div class="dropDown-content dos">
+          <div class="dropDown-column" *ngFor="let element of platos">
+            <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="dropDown3">
+      <a class="dropDown-a" [routerLink]="['']">Repostería</a>
+      <div class="dropDown-content tres">
+          <div class="dropDown-column" *ngFor="let element of reposteria">
+            <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="dropDown4">
+      <a class="dropDown-a" [routerLink]="['']">Bebidas</a>
+      <div class="dropDown-content cuatro">
+          <div class="dropDown-column" *ngFor="let element of bebidas">
+            <a (click)="addCart(element)"><img [src]="element.foto_carrito" alt="product" class="image-submenu">{{element.descripcion_corta}}</a>
+        </div>
+      </div>
+    </div>
   </div>
+
   <!--Image Container-->
   <div class="col content-img">
     <img
